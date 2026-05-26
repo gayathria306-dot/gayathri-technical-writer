@@ -1,12 +1,12 @@
 module.exports = {
-  title: 'Technical Writing Portfolio',
-  tagline: 'Documentation by Lingraj M',
-  url: 'https://lingaraj-tw.github.io',
-  baseUrl: '/Technical-Writing-Portfolio/',
+  title: 'Gayathri | Technical Writer | Content Writer',
+  tagline: 'Crafting clear documentation for complex technology',
+  url: 'https://gayathria306-dot.github.io/gayathri-technical-writer/',
+  baseUrl: '/Gayathri-Technical-Writing-Portfolio/',
   favicon: 'img/favicon.ico',
  
-  organizationName: 'lingaraj-tw',
-  projectName: 'Technical-Writing-Portfolio',
+  organizationName: 'Gayathri P Ajith-tw',
+  projectName: 'Gayathri-Technical-Writing-Portfolio',
  
   presets: [
     [
@@ -22,7 +22,7 @@ module.exports = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `© ${new Date().getFullYear()} Lingraj M`,
+      copyright: `© ${new Date().getFullYear()} Gayathri P Ajith`,
     },
   },
 };
