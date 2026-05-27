@@ -9,6 +9,9 @@ module.exports = {
   organizationName: "gayathria306-dot",
   projectName: "gayathri-technical-writer",
 
+  onBrokenLinks: "throw"
+  onBrokenLinks: "warn" 
+
   presets: [
     [
       "@docusaurus/preset-classic",
