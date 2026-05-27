@@ -35,7 +35,6 @@ I enjoy transforming complex technical topics into engaging, accessible content 
 **Academic Coordinator**  
 **Indian Institute of Commerce – Lakshya** — Feb 2022 – Aug 2022
 - Managed academic operations and documentation for 160+ students
-
 ---
 
 ## Featured Work
@@ -53,7 +52,6 @@ Amrita Vishwa Vidyapeetham, Kochi (2023–2025)
 
 **B.A. English Language & Literature** (CGPA 7.23)  
 Amrita Vishwa Vidyapeetham, Kochi (2017–2020)
-
 ---
 
 ## Let's Connect
@@ -63,5 +61,4 @@ I'm currently open to opportunities in **Technical Writing**, **Content Writing*
 - Email → [gayathria306@gmail.com](mailto:gayathria306@gmail.com)
 - Portfolio → You're on it!
 - LinkedIn → [Connect with me](https://linkedin.com/in/yourprofile)
-
 ---
