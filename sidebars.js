@@ -1,11 +1,9 @@
 module.exports = {
-  tutorialSidebar: [
-    'index',
-    'about',
-    'skills',
-    'strategy',
-    'doc-governance',
-    'style-guide',
-    'glossary',
+  mySidebar: [
+    {
+      type: 'doc'
+      id: 'index', 
+      label: 'Home',
+    },
   ],
 };
