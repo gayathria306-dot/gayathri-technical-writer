@@ -1,28 +1,48 @@
 module.exports = {
-  title: 'Gayathri | Technical Writer | Content Writer',
-  tagline: 'Crafting clear documentation for complex technology',
-  url: 'https://gayathria306-dot.github.io/gayathri-technical-writer/',
-  baseUrl: '/Gayathri-Technical-Writing-Portfolio/',
-  favicon: 'img/favicon.ico',
- 
-  organizationName: 'Gayathri P Ajith-tw',
-  projectName: 'Gayathri-Technical-Writing-Portfolio',
- 
+  title: "Gayathri P Ajith",
+  tagline: "Technical Content Writer | SEO Content Writer | Content Editor",
+  url: "https://gayathria306-dot.github.io",
+  baseUrl: "/gayathri-technical-writer/",
+
+  favicon: "img/favicon.ico",
+
+  organizationName: "gayathria306-dot",
+  projectName: "gayathri-technical-writer",
+
   presets: [
     [
-      'classic',
+      "@docusaurus/preset-classic",
       {
-        docs: { sidebarPath: require.resolve('./sidebars.js') },
-        theme: { customCss: require.resolve('./src/css/custom.css') },
+        docs: {
+          sidebarPath: require.resolve("./sidebars.js"),
+          routeBasePath: "/",
+        },
+        theme: {
+          customCss: require.resolve("./src/css/custom.css"),
+        },
       },
     ],
   ],
- 
+
   themeConfig: {
+    navbar: {
+      title: "Gayathri P Ajith",
+      logo: {
+        alt: "Gayathri Logo",
+        src: "img/avatar.jpg",
+      },
+      items: [
+        {
+          type: "doc",
+          docId: "index",
+          position: "left",
+          label: "Home",
+        },
+      ],
+    },
     footer: {
-      style: 'dark',
-      links: [],
-      copyright: `© ${new Date().getFullYear()} Gayathri P Ajith`,
+      style: "dark",
+      copyright: `Copyright © ${new Date().getFullYear()} Gayathri P Ajith`,
     },
   },
 };
