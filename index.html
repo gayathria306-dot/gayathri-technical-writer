@@ -3,90 +3,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gayathri P Ajith | Technical & SEO Content Writer</title>
+  <title>GAYATHRI P AJITH // NEURAL CORE v3.1</title>
   <style>
-    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; line-height: 1.6; }
-    header { background: linear-gradient(135deg, #2c3e50, #3498db); color: white; text-align: center; padding: 80px 20px; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-    h1 { margin: 0; font-size: 2.8rem; }
-    h2 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-    .photo { width: 180px; height: 180px; border-radius: 50%; border: 5px solid white; margin-bottom: 20px; }
-    section { margin-bottom: 50px; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 10px; }
-    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-    th { background: #f1f1f1; }
-    .btn { display: inline-block; background: #3498db; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin: 10px 5px; }
-    footer { text-align: center; padding: 30px; background: #2c3e50; color: white; }
+    :root {
+      --neon-cyan: #00f5ff;
+      --neon-pink: #ff0088;
+      --neon-green: #00ff9d;
+      --dark-bg: #05050f;
+      --panel: rgba(10, 15, 40, 0.92);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Courier New', monospace;
+      background: var(--dark-bg);
+      color: #00f5ff;
+      background-image: 
+        radial-gradient(circle, rgba(0,245,255,0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,0,136,0.03) 0%, transparent 100%);
+      background-size: 40px 40px;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 50px;
+      background: linear-gradient(135deg, #0a001f, #1a0033);
+      position: relative;
+      border-bottom: 2px solid var(--neon-cyan);
+    }
+
+    .scanline {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(transparent, rgba(0,245,255,0.15), transparent);
+      animation: scan 8s linear infinite;
+      pointer-events: none;
+    }
+
+    .photo {
+      width: 200px;
+      height: 200px;
+      border: 4px solid var(--neon-cyan);
+      border-radius: 50%;
+      box-shadow: 
+        0 0 60px var(--neon-cyan),
+        0 0 120px rgba(255, 0, 136, 0.6),
+        inset 0 0 40px rgba(0, 245, 255, 0.5);
+      margin-bottom: 25px;
+      transition: all 0.5s;
+    }
+
+    .photo:hover {
+      transform: scale(1.1) rotate(8deg);
+      box-shadow: 0 0 80px var(--neon-cyan);
+    }
+
+    h1 {
+      font-size: 3.8rem;
+      letter-spacing: 12px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #00f5ff, #ff0088, #00ff9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px var(--neon-cyan);
+    }
+
+    .status {
+      color: var(--neon-green);
+      font-size: 1.3rem;
+      margin-top: 15px;
+      animation: pulse 1.5s infinite;
+    }
+
+    nav {
+      background: rgba(5, 5, 20, 0.98);
+      padding: 22px 0;
+      text-align: center;
+      border-top: 1px solid var(--neon-cyan);
+      border-bottom: 1px solid var(--neon-pink);
+    }
+
+    nav a {
+      color: var(--neon-cyan);
+      text-decoration: none;
+      margin: 0 30px;
+      font-size: 1.15rem;
+      padding: 10px 25px;
+      border: 1px solid transparent;
+      transition: 0.4s;
+    }
+
+    nav a:hover {
+      border-color: var(--neon-pink);
+      background: rgba(255, 0, 136, 0.15);
+      color: white;
+      box-shadow: 0 0 20px var(--neon-pink);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 25px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(0, 245, 255, 0.4);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 0 30px rgba(0, 245, 255, 0.15);
+      transition: all 0.4s;
+    }
+
+    .panel:hover {
+      border-color: var(--neon-pink);
+      box-shadow: 0 0 50px rgba(255, 0, 136, 0.3);
+      transform: translateY(-8px);
+    }
+
+    .panel h2 {
+      color: var(--neon-pink);
+      margin-bottom: 18px;
+      font-size: 1.7rem;
+      text-shadow: 0 0 10px var(--neon-pink);
+    }
+
+    .data-line {
+      color: var(--neon-green);
+      margin: 12px 0;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #444;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(0, 245, 255, 0.2);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes scan {
+      0% { transform: translateY(-150%); }
+      100% { transform: translateY(400%); }
+    }
   </style>
 </head>
 <body>
   <header>
+    <div class="scanline"></div>
     <img src="img/avatar.jpg" alt="Gayathri P Ajith" class="photo">
-    <h1>Gayathri P Ajith</h1>
-    <p style="font-size: 1.4rem; margin: 10px 0;">Technical Content Writer | SEO Content Writer | Content Editor</p>
-    <p>Ernakulam, Kerala, India | +91 7591920719 | gayathria306@gmail.com</p>
+    <h1>GAYATHRI P AJITH</h1>
+    <p class="status">● NEURAL CORE ONLINE // CONTENT ARCHITECT PROTOCOL ACTIVE</p>
   </header>
 
+  <nav>
+    <a href="index.html">HOME BASE</a>
+    <a href="technical-samples.html">TECHNICAL WRITING</a>
+    <a href="articles.html">ARTICLES DATABASE</a>
+    <a href="editorial.html">EDITORIAL MATRIX</a>
+  </nav>
+
   <div class="container">
-    <section>
-      <h2>About Me</h2>
-      <p>A literature postgraduate from Amrita Vishwa Vidyapeetham with a strong foundation in storytelling, critical analysis, and clear communication. I specialize in transforming complex technical concepts into engaging, accessible content for business and technology audiences.</p>
-      <p>Experienced in SEO-optimized content, technical writing, and content editing — particularly in Fintech, Cybersecurity, and Digital Banking domains.</p>
-    </section>
+    <div class="panel">
+      <h2>SYSTEM PROFILE</h2>
+      <p class="data-line">→ Literature Postgraduate | Amrita Vishwa Vidyapeetham</p>
+      <p class="data-line">→ Specializing in Fintech, Cybersecurity & Digital Transformation Content</p>
+      <p class="data-line">→ SEO + Technical Documentation Architect</p>
+    </div>
 
-    <section>
-      <h2>Core Skills</h2>
-      <ul>
-        <li><strong>Writing:</strong> Technical Writing, SEO Content Writing, Blog Writing, Content Editing, Proofreading</li>
-        <li><strong>Strategy:</strong> Keyword Research, On-Page SEO, Content Strategy, Audience Engagement</li>
-        <li><strong>Creative:</strong> Creative Writing, Poetry, Web Storytelling, Brand Voice Development</li>
-        <li><strong>Tools:</strong> WordPress, Canva, Google Docs, Microsoft Office, Generative AI (ChatGPT), Prompt Engineering</li>
-      </ul>
-    </section>
+    <div class="panel">
+      <h2>CORE CAPABILITIES</h2>
+      <p class="data-line">→ Research-Driven Content Engineering</p>
+      <p class="data-line">→ SEO Optimized Knowledge Transfer</p>
+      <p class="data-line">→ Complex Concept Simplification</p>
+      <p class="data-line">→ Generative AI Augmented Writing</p>
+    </div>
 
-    <section>
-      <h2>Professional Experience</h2>
-      <h3>Content Editor — QKS Group (Techbuzz.Media)</h3>
-      <p><strong>Jan 2025 – Mar 2026</strong></p>
-      <ul>
-        <li>Wrote and edited SEO-optimized blog content on Fintech, Cybersecurity, and Digital Banking</li>
-        <li>Produced research-driven articles using SPARK Matrix reports and industry insights</li>
-        <li>Translated complex technical reports into clear, engaging content</li>
-      </ul>
-
-      <h3>Academic Coordinator — Indian Institute of Commerce – Lakshya</h3>
-      <p><strong>Feb 2022 – Aug 2022</strong></p>
-      <ul>
-        <li>Managed academic operations and documentation for 160+ students</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Featured Projects & Samples</h2>
-      <table>
-        <tr><th>Project</th><th>Type</th><th>Link</th></tr>
-        <tr><td>Industry Blog Writing</td><td>Fintech & Cybersecurity</td><td><a href="https://fintechoutlook.com/" target="_blank">View</a></td></tr>
-        <tr><td>Academic Research Paper</td><td>Published Paper</td><td><a href="https://ijcrt.org/papers/IJCRT25A4218.pdf" target="_blank">View PDF</a></td></tr>
-        <tr><td>Eclipsed Realm</td><td>Web Fiction</td><td><a href="https://www.wattpad.com/story/374607489-eclipsed-realm" target="_blank">Wattpad</a></td></tr>
-        <tr><td>Ethereal Rhymes</td><td>Poetry Portfolio</td><td><a href="https://etherealrhymesbygayathri.wordpress.com/" target="_blank">WordPress</a></td></tr>
-      </table>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      <p><strong>Master of Arts in English Language and Literature</strong> (CGPA 8.34)<br>
-      Amrita Vishwa Vidyapeetham, Kochi (2023 – 2025)</p>
-      <p><strong>Bachelor of Arts in English Language and Literature</strong> (CGPA 7.23)<br>
-      Amrita Vishwa Vidyapeetham, Kochi (2017 – 2020)</p>
-    </section>
+    <div class="panel">
+      <h2>ACTIVE MISSIONS</h2>
+      <p class="data-line">• Techbuzz.Media Content Editor (Fintech & Infosec)</p>
+      <p class="data-line">• Published Research Author (IJCRT)</p>
+      <p class="data-line">• Creative Narrative Systems (Wattpad + WordPress)</p>
+    </div>
   </div>
 
   <footer>
-    <p>© 2026 Gayathri P Ajith | Open to Technical Writing & Content Strategy opportunities</p>
-    <a href="mailto:gayathria306@gmail.com" class="btn">Email Me</a>
-    <a href="https://www.linkedin.com/in/gayathri-p-ajith-7653a11b1/" class="btn" target="_blank">LinkedIn</a>
+    © 2026 GAYATHRI P AJITH • NEURAL CONTENT DIVISION • ALL RIGHTS RESERVED
   </footer>
 </body>
 </html>
