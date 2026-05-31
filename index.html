@@ -1,203 +1,1562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAYATHRI P AJITH // NEURAL CORE v3.1</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gayathri P Ajith — Technical Writer & Content Strategist</title>
+    <meta name="description" content="Technical Writer & Content Strategist specializing in FinTech, Cybersecurity, AI/ML, API Documentation, and SaaS.">
+    <meta property="og:title" content="Gayathri P Ajith — Technical Writer & Content Strategist">
+    <meta property="og:description" content="Translating the complex into the clear — from API references to enterprise content strategy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+
+    /* ======================================================
+       CSS CUSTOM PROPERTIES
+    ====================================================== */
     :root {
-      --neon-cyan: #00f5ff;
-      --neon-pink: #ff0088;
-      --neon-green: #00ff9d;
-      --dark-bg: #05050f;
-      --panel: rgba(10, 15, 40, 0.92);
+        --bg-primary:       #07090D;
+        --bg-surface:       #0C0F17;
+        --bg-card:          #111520;
+        --bg-card-hover:    #151A28;
+        --border:           rgba(255,255,255,0.07);
+        --border-accent:    rgba(196,163,90,0.35);
+        --text-primary:     #EDE8DE;
+        --text-secondary:   #78819A;
+        --text-muted:       #42495E;
+        --accent:           #C4A35A;
+        --accent-light:     #D4B870;
+        --accent-glow:      rgba(196,163,90,0.10);
+        --green:            #4ade80;
+        --green-glow:       rgba(74,222,128,0.15);
+        --font-display:     'Cormorant Garamond', Georgia, serif;
+        --font-ui:          'Syne', sans-serif;
+        --font-mono:        'IBM Plex Mono', 'Courier New', monospace;
+        --nav-h:            72px;
+        --pad-section:      120px;
+        --container:        1180px;
+        --ease:             cubic-bezier(0.4,0,0.2,1);
+        --t:                0.3s;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ======================================================
+       RESET & BASE
+    ====================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Courier New', monospace;
-      background: var(--dark-bg);
-      color: #00f5ff;
-      background-image: 
-        radial-gradient(circle, rgba(0,245,255,0.08) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(255,0,136,0.03) 0%, transparent 100%);
-      background-size: 40px 40px;
-      overflow-x: hidden;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: var(--font-ui);
+        font-size: 1rem;
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
-
-    header {
-      text-align: center;
-      padding: 80px 20px 50px;
-      background: linear-gradient(135deg, #0a001f, #1a0033);
-      position: relative;
-      border-bottom: 2px solid var(--neon-cyan);
+    /* Subtle film grain */
+    body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 9998;
+        opacity: 0.5;
     }
-
-    .scanline {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(transparent, rgba(0,245,255,0.15), transparent);
-      animation: scan 8s linear infinite;
-      pointer-events: none;
-    }
-
-    .photo {
-      width: 200px;
-      height: 200px;
-      border: 4px solid var(--neon-cyan);
-      border-radius: 50%;
-      box-shadow: 
-        0 0 60px var(--neon-cyan),
-        0 0 120px rgba(255, 0, 136, 0.6),
-        inset 0 0 40px rgba(0, 245, 255, 0.5);
-      margin-bottom: 25px;
-      transition: all 0.5s;
-    }
-
-    .photo:hover {
-      transform: scale(1.1) rotate(8deg);
-      box-shadow: 0 0 80px var(--neon-cyan);
-    }
-
-    h1 {
-      font-size: 3.8rem;
-      letter-spacing: 12px;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #00f5ff, #ff0088, #00ff9d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 40px var(--neon-cyan);
-    }
-
-    .status {
-      color: var(--neon-green);
-      font-size: 1.3rem;
-      margin-top: 15px;
-      animation: pulse 1.5s infinite;
-    }
-
-    nav {
-      background: rgba(5, 5, 20, 0.98);
-      padding: 22px 0;
-      text-align: center;
-      border-top: 1px solid var(--neon-cyan);
-      border-bottom: 1px solid var(--neon-pink);
-    }
-
-    nav a {
-      color: var(--neon-cyan);
-      text-decoration: none;
-      margin: 0 30px;
-      font-size: 1.15rem;
-      padding: 10px 25px;
-      border: 1px solid transparent;
-      transition: 0.4s;
-    }
-
-    nav a:hover {
-      border-color: var(--neon-pink);
-      background: rgba(255, 0, 136, 0.15);
-      color: white;
-      box-shadow: 0 0 20px var(--neon-pink);
-    }
-
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
     .container {
-      max-width: 1300px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 25px;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 40px;
     }
 
-    .panel {
-      background: var(--panel);
-      border: 1px solid rgba(0, 245, 255, 0.4);
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 0 30px rgba(0, 245, 255, 0.15);
-      transition: all 0.4s;
+    /* ======================================================
+       SCROLL REVEAL
+    ====================================================== */
+    .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+    .reveal-d5 { transition-delay: 0.40s; }
+
+    /* ======================================================
+       PAGE-LOAD ANIMATIONS
+    ====================================================== */
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+    @keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+    @keyframes growX    { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+    @keyframes pulse    { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(.75); } }
+
+    /* ======================================================
+       NAV
+    ====================================================== */
+    #navbar {
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: var(--nav-h);
+        z-index: 1000;
+        transition: background var(--t) var(--ease), border-color var(--t) var(--ease);
+        border-bottom: 1px solid transparent;
+    }
+    #navbar.scrolled {
+        background: rgba(7,9,13,0.90);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom-color: var(--border);
+    }
+    .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .nav-logo {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-primary);
+    }
+    .nav-logo em { color: var(--accent); font-style: normal; }
+    .nav-links {
+        display: flex;
+        gap: 34px;
+    }
+    .nav-links a {
+        font-family: var(--font-ui);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        transition: color var(--t);
+        position: relative;
+        padding-bottom: 2px;
+    }
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 0; height: 1px;
+        background: var(--accent);
+        transition: width var(--t) var(--ease);
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        border: 1px solid var(--border-accent);
+        padding: 8px 16px;
+        transition: background var(--t), color var(--t);
+    }
+    .nav-cta:hover { background: var(--accent-glow); }
+    .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+    }
+    .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 1px;
+        background: var(--text-primary);
+        transition: var(--t);
     }
 
-    .panel:hover {
-      border-color: var(--neon-pink);
-      box-shadow: 0 0 50px rgba(255, 0, 136, 0.3);
-      transform: translateY(-8px);
+    /* ======================================================
+       MOBILE MENU
+    ====================================================== */
+    #mobileMenu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--bg-primary);
+        z-index: 999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+    }
+    #mobileMenu.open { display: flex; }
+    #mobileMenu a {
+        font-family: var(--font-display);
+        font-size: clamp(28px,7vw,52px);
+        font-weight: 300;
+        color: var(--text-secondary);
+        transition: color var(--t);
+        letter-spacing: -0.01em;
+    }
+    #mobileMenu a:hover { color: var(--accent); }
+    #mobileMenu .close-btn {
+        position: absolute;
+        top: 24px; right: 28px;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        cursor: pointer;
+        background: none;
+        border: none;
+        transition: color var(--t);
+    }
+    #mobileMenu .close-btn:hover { color: var(--accent); }
+
+    /* ======================================================
+       BUTTONS
+    ====================================================== */
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-ui);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--bg-primary);
+        background: var(--accent);
+        padding: 14px 28px;
+        border: none;
+        cursor: pointer;
+        transition: background var(--t), transform var(--t);
+    }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+    .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-ui);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        padding: 14px 28px;
+        cursor: pointer;
+        background: transparent;
+        transition: border-color var(--t), color var(--t), transform var(--t);
+    }
+    .btn-outline:hover { border-color: var(--border-accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* ======================================================
+       SECTION STRUCTURE
+    ====================================================== */
+    section { padding: var(--pad-section) 0; position: relative; }
+    .section-header { margin-bottom: 68px; }
+    .section-no {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.22em;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+    }
+    .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(34px,5vw,62px);
+        font-weight: 300;
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .section-rule {
+        width: 52px;
+        height: 1px;
+        background: var(--accent);
+        margin-top: 22px;
+    }
+    .sep { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ======================================================
+       HERO
+    ====================================================== */
+    #hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-top: var(--nav-h);
+        padding-bottom: 90px;
+        overflow: hidden;
+    }
+    /* Grid bg */
+    #hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(196,163,90,.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(196,163,90,.035) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: radial-gradient(ellipse 90% 65% at 50% 100%, black 30%, transparent 100%);
+        -webkit-mask-image: radial-gradient(ellipse 90% 65% at 50% 100%, black 30%, transparent 100%);
+        pointer-events: none;
+    }
+    /* Radial glow behind name */
+    #hero::after {
+        content: '';
+        position: absolute;
+        top: 20%; left: 50%;
+        transform: translateX(-50%);
+        width: 700px; height: 500px;
+        background: radial-gradient(ellipse at center, rgba(196,163,90,.04) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .hero-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 36px;
+        animation: fadeIn 0.6s ease 0.15s both;
+    }
+    .hero-eyebrow-line { width: 38px; height: 1px; background: var(--accent); }
+    .hero-eyebrow span {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+    }
+    .hero-name {
+        font-family: var(--font-display);
+        font-size: clamp(54px,9.5vw,126px);
+        font-weight: 300;
+        line-height: 0.9;
+        letter-spacing: -0.025em;
+        animation: fadeUp 0.9s var(--ease) 0.3s both;
+    }
+    .hero-name .italic { font-style: italic; color: var(--accent); }
+    .hero-divider {
+        height: 1px;
+        background: linear-gradient(90deg, var(--border-accent) 0%, transparent 70%);
+        margin: 44px 0;
+        transform-origin: left;
+        animation: growX 0.9s var(--ease) 0.7s both;
+    }
+    .hero-bottom {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
+        align-items: end;
+    }
+    .hero-tagline {
+        font-family: var(--font-display);
+        font-size: clamp(15px,1.8vw,20px);
+        font-weight: 300;
+        font-style: italic;
+        color: var(--text-secondary);
+        line-height: 1.65;
+        max-width: 500px;
+        animation: fadeUp 0.8s var(--ease) 0.9s both;
+    }
+    .hero-domains {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 22px;
+        animation: fadeUp 0.8s var(--ease) 1.0s both;
+    }
+    .dtag {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+        padding: 4px 10px;
+        transition: color var(--t), border-color var(--t);
+    }
+    .dtag:hover { color: var(--accent); border-color: var(--border-accent); }
+    .hero-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 14px;
+        flex-wrap: wrap;
+        animation: fadeUp 0.8s var(--ease) 1.1s both;
     }
 
-    .panel h2 {
-      color: var(--neon-pink);
-      margin-bottom: 18px;
-      font-size: 1.7rem;
-      text-shadow: 0 0 10px var(--neon-pink);
+    /* ======================================================
+       MARQUEE STRIP
+    ====================================================== */
+    .marquee-strip {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 14px 0;
+        overflow: hidden;
+        background: var(--bg-surface);
+    }
+    .marquee-track {
+        display: flex;
+        white-space: nowrap;
+        animation: marquee 30s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+    .marquee-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        padding: 0 28px;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+    .marquee-dot { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+    /* ======================================================
+       ABOUT
+    ====================================================== */
+    #about { border-top: none; }
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 100px;
+        align-items: start;
+    }
+    .about-left { position: sticky; top: 96px; }
+    .about-stats {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        margin-top: 36px;
+    }
+    .stat {
+        background: var(--bg-surface);
+        padding: 22px 14px;
+        text-align: center;
+    }
+    .stat-n {
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--accent);
+        line-height: 1;
+        display: block;
+    }
+    .stat-l {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 5px;
+        display: block;
+    }
+    .about-body p {
+        font-family: var(--font-display);
+        font-size: clamp(16px,1.9vw,20px);
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--text-secondary);
+        margin-bottom: 26px;
+    }
+    .about-body p strong { color: var(--text-primary); font-weight: 500; }
+    .pull-quote {
+        border-left: 2px solid var(--accent);
+        padding: 4px 0 4px 28px;
+        margin: 44px 0;
+    }
+    .pull-quote p {
+        font-family: var(--font-display);
+        font-size: clamp(18px,2.4vw,26px) !important;
+        font-style: italic;
+        color: var(--text-primary) !important;
+        line-height: 1.5 !important;
     }
 
-    .data-line {
-      color: var(--neon-green);
-      margin: 12px 0;
-      font-size: 1.05rem;
+    /* ======================================================
+       SKILLS
+    ====================================================== */
+    #skills { background: var(--bg-surface); }
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2px;
+        background: var(--border);
     }
+    .skill-col {
+        background: var(--bg-primary);
+        padding: 40px 36px;
+        transition: background var(--t);
+    }
+    .skill-col:hover { background: var(--bg-card); }
+    .skill-col-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border);
+    }
+    .sk-icon {
+        width: 32px; height: 32px;
+        border: 1px solid var(--border-accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .sk-icon svg { width:14px; height:14px; stroke: var(--accent); fill:none; stroke-width:1.5; }
+    .sk-title {
+        font-family: var(--font-ui);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-primary);
+    }
+    .sk-list { display:flex; flex-direction:column; gap:9px; }
+    .sk-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.84rem;
+        color: var(--text-secondary);
+        transition: color var(--t);
+    }
+    .sk-list li::before {
+        content: '';
+        width: 3px; height: 3px;
+        background: var(--accent);
+        border-radius: 50%;
+        flex-shrink: 0;
+        opacity: 0.7;
+    }
+    .sk-list li:hover { color: var(--text-primary); }
+    .chips { display:flex; flex-wrap:wrap; gap:7px; }
+    .chip {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+        padding: 5px 10px;
+        transition: color var(--t), border-color var(--t);
+        cursor: default;
+    }
+    .chip:hover { color: var(--accent); border-color: var(--border-accent); }
 
+    /* ======================================================
+       WORK SAMPLES
+    ====================================================== */
+    #work {}
+    .work-filter {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+    .fbtn {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+        padding: 6px 14px;
+        background: transparent;
+        cursor: pointer;
+        transition: all var(--t);
+    }
+    .fbtn.active, .fbtn:hover {
+        color: var(--accent);
+        border-color: var(--border-accent);
+        background: var(--accent-glow);
+    }
+    .work-grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 2px;
+        background: var(--border);
+    }
+    .wcard {
+        background: var(--bg-card);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+        transition: background var(--t);
+        cursor: default;
+    }
+    .wcard::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.45s var(--ease);
+    }
+    .wcard:hover { background: var(--bg-card-hover); }
+    .wcard:hover::before { transform: scaleX(1); }
+    .wcard-idx {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        margin-bottom: 18px;
+    }
+    .wcard-domain {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+    .wcard-title {
+        font-family: var(--font-display);
+        font-size: clamp(19px,2.2vw,25px);
+        font-weight: 400;
+        color: var(--text-primary);
+        line-height: 1.3;
+        margin-bottom: 14px;
+    }
+    .wcard-desc {
+        font-size: 0.83rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 22px;
+    }
+    .wcard-tags { display:flex; flex-wrap:wrap; gap:5px; }
+    .wtag {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.07em;
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+        padding: 3px 8px;
+    }
+    .wcard-arrow {
+        position: absolute;
+        bottom: 28px; right: 28px;
+        width: 34px; height: 34px;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color var(--t), background var(--t);
+    }
+    .wcard-arrow svg { width:13px; height:13px; stroke: var(--accent); fill:none; stroke-width:1.5; }
+    .wcard:hover .wcard-arrow { border-color: var(--border-accent); background: var(--accent-glow); }
+    /* featured spans full width */
+    .wcard.featured {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: start;
+    }
+    .wcard.featured .wcard-title { font-size: clamp(22px,3vw,34px); }
+
+    /* ======================================================
+       RESUME
+    ====================================================== */
+    #resume { background: var(--bg-surface); }
+    .resume-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
+    .col-label {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 32px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--border);
+    }
+    .timeline { display:flex; flex-direction:column; }
+    .titem { display:grid; grid-template-columns:10px 1fr; gap:24px; padding-bottom:36px; }
+    .titem:last-child { padding-bottom: 0; }
+    .tline { display:flex; flex-direction:column; align-items:center; }
+    .tdot {
+        width: 7px; height: 7px;
+        background: var(--accent);
+        border: 1px solid var(--accent);
+        flex-shrink: 0;
+        margin-top: 5px;
+    }
+    .tconn { flex:1; width:1px; background:var(--border); margin-top:6px; }
+    .titem:last-child .tconn { display:none; }
+    .tdate { font-family:var(--font-mono); font-size:0.6rem; letter-spacing:.08em; color:var(--text-muted); margin-bottom:6px; }
+    .trole { font-family:var(--font-ui); font-size:.9rem; font-weight:700; color:var(--text-primary); margin-bottom:3px; }
+    .torg { font-family:var(--font-display); font-size:.95rem; font-style:italic; color:var(--accent); margin-bottom:8px; }
+    .tdesc { font-size:.8rem; color:var(--text-secondary); line-height:1.65; }
+    .cert-list { display:flex; flex-direction:column; gap:12px; }
+    .cert {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        padding: 18px 20px;
+        border: 1px solid var(--border);
+        transition: border-color var(--t), background var(--t);
+    }
+    .cert:hover { border-color:var(--border-accent); background:var(--accent-glow); }
+    .cert-ico {
+        width:34px; height:34px;
+        border:1px solid var(--border-accent);
+        background: var(--accent-glow);
+        display:flex; align-items:center; justify-content:center;
+        flex-shrink: 0;
+    }
+    .cert-ico svg { width:14px; height:14px; stroke:var(--accent); fill:none; stroke-width:1.5; }
+    .cert-name { font-family:var(--font-ui); font-size:.84rem; font-weight:600; color:var(--text-primary); }
+    .cert-src { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.07em; color:var(--text-muted); margin-top:2px; }
+
+    /* ======================================================
+       BLOG
+    ====================================================== */
+    #blog {}
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2px;
+        background: var(--border);
+    }
+    .bcard {
+        background: var(--bg-card);
+        padding: 36px;
+        transition: background var(--t);
+        position: relative;
+        overflow: hidden;
+    }
+    .bcard:hover { background: var(--bg-card-hover); }
+    .bcard::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 1px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s var(--ease);
+    }
+    .bcard:hover::after { transform: scaleX(1); }
+    .bcard-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+    .btag { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
+    .bdate { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.07em; color:var(--text-muted); }
+    .bcard-title {
+        font-family: var(--font-display);
+        font-size: clamp(17px,2vw,21px);
+        font-weight: 400;
+        color: var(--text-primary);
+        line-height: 1.35;
+        margin-bottom: 12px;
+        transition: color var(--t);
+    }
+    .bcard:hover .bcard-title { color: var(--accent); }
+    .bcard-excerpt { font-size:.81rem; color:var(--text-secondary); line-height:1.7; }
+    .breadmore {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-mono);
+        font-size: .62rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-top: 18px;
+        transition: gap var(--t);
+    }
+    .breadmore:hover { gap: 10px; }
+    .breadmore svg { width:10px; height:10px; stroke:currentColor; fill:none; stroke-width:1.5; }
+
+    /* ======================================================
+       CONTACT
+    ====================================================== */
+    #contact { background: var(--bg-surface); }
+    .avail-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-size: .62rem;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--green);
+        border: 1px solid rgba(74,222,128,.2);
+        padding: 6px 14px;
+        margin-bottom: 36px;
+    }
+    .avail-dot {
+        width: 6px; height: 6px;
+        background: var(--green);
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    .contact-headline {
+        font-family: var(--font-display);
+        font-size: clamp(38px,6.5vw,84px);
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        margin-bottom: 28px;
+    }
+    .contact-headline em { font-style:italic; color:var(--accent); }
+    .contact-sub {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 300;
+        font-style: italic;
+        color: var(--text-secondary);
+        margin-bottom: 48px;
+        max-width: 560px;
+        line-height: 1.65;
+    }
+    .contact-links { display:flex; flex-direction:column; gap:2px; max-width:680px; }
+    .clink {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 22px;
+        border: 1px solid var(--border);
+        background: var(--bg-primary);
+        transition: border-color var(--t), background var(--t);
+    }
+    .clink:hover { border-color:var(--border-accent); background:var(--accent-glow); }
+    .clink-l { display:flex; align-items:center; gap:16px; }
+    .clink-ico {
+        width:34px; height:34px;
+        border:1px solid var(--border);
+        display:flex; align-items:center; justify-content:center;
+        transition: border-color var(--t);
+        flex-shrink:0;
+    }
+    .clink:hover .clink-ico { border-color:var(--border-accent); }
+    .clink-ico svg { width:13px; height:13px; stroke:var(--accent); fill:none; stroke-width:1.5; }
+    .clink-lbl { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+    .clink-val { font-family:var(--font-ui); font-size:.88rem; color:var(--text-primary); margin-top:2px; }
+    .clink-arr svg { width:15px; height:15px; stroke:var(--accent); fill:none; stroke-width:1.5; opacity:0; transition:opacity var(--t), transform var(--t); }
+    .clink:hover .clink-arr svg { opacity:1; transform:translateX(4px); }
+
+    /* ======================================================
+       FOOTER
+    ====================================================== */
     footer {
-      text-align: center;
-      padding: 40px;
-      color: #444;
-      font-size: 0.95rem;
-      border-top: 1px solid rgba(0, 245, 255, 0.2);
+        border-top: 1px solid var(--border);
+        padding: 28px 0;
+        background: var(--bg-primary);
+    }
+    .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .footer-copy {
+        font-family: var(--font-mono);
+        font-size: .62rem;
+        letter-spacing: .08em;
+        color: var(--text-muted);
+    }
+    .footer-copy span { color: var(--accent); }
+    .footer-links {
+        display: flex;
+        gap: 22px;
+    }
+    .footer-links a {
+        font-family: var(--font-mono);
+        font-size: .62rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        transition: color var(--t);
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .back-top {
+        font-family: var(--font-mono);
+        font-size: .62rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        cursor: pointer;
+        background: none;
+        border: 1px solid var(--border);
+        padding: 6px 12px;
+        transition: color var(--t), border-color var(--t);
+    }
+    .back-top:hover { color:var(--accent); border-color:var(--border-accent); }
+
+    /* ======================================================
+       RESPONSIVE
+    ====================================================== */
+    @media (max-width: 960px) {
+        :root { --pad-section: 80px; }
+        .container { padding: 0 24px; }
+        .nav-links, .nav-cta { display: none; }
+        .nav-toggle { display: flex; }
+        .about-grid { grid-template-columns: 1fr; gap: 48px; }
+        .about-left { position: static; }
+        .skills-grid { grid-template-columns: 1fr; }
+        .work-grid { grid-template-columns: 1fr; }
+        .wcard.featured { grid-column: auto; display: block; }
+        .resume-grid { grid-template-columns: 1fr; gap: 52px; }
+        .blog-grid { grid-template-columns: 1fr; }
+        .hero-bottom { grid-template-columns: 1fr; gap: 32px; }
+        .hero-actions { justify-content: flex-start; }
+    }
+    @media (max-width: 600px) {
+        .about-stats { grid-template-columns: 1fr; }
+        .hero-name { font-size: clamp(48px,12vw,80px); }
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    @keyframes scan {
-      0% { transform: translateY(-150%); }
-      100% { transform: translateY(400%); }
-    }
-  </style>
+    </style>
 </head>
 <body>
-  <header>
-    <div class="scanline"></div>
-    <img src="img/avatar.jpg" alt="Gayathri P Ajith" class="photo">
-    <h1>GAYATHRI P AJITH</h1>
-    <p class="status">● NEURAL CORE ONLINE // CONTENT ARCHITECT PROTOCOL ACTIVE</p>
-  </header>
 
-  <nav>
-    <a href="index.html">HOME BASE</a>
-    <a href="technical-samples.html">TECHNICAL WRITING</a>
-    <a href="articles.html">ARTICLES DATABASE</a>
-    <a href="editorial.html">EDITORIAL MATRIX</a>
-  </nav>
+<!-- ========================================================
+     MOBILE MENU
+======================================================== -->
+<div id="mobileMenu">
+    <button class="close-btn" onclick="closeMobileMenu()">Close ✕</button>
+    <a href="#about"   onclick="closeMobileMenu()">About</a>
+    <a href="#skills"  onclick="closeMobileMenu()">Skills</a>
+    <a href="#work"    onclick="closeMobileMenu()">Work</a>
+    <a href="#resume"  onclick="closeMobileMenu()">Résumé</a>
+    <a href="#blog"    onclick="closeMobileMenu()">Blog</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
 
-  <div class="container">
-    <div class="panel">
-      <h2>SYSTEM PROFILE</h2>
-      <p class="data-line">→ Literature Postgraduate | Amrita Vishwa Vidyapeetham</p>
-      <p class="data-line">→ Specializing in Fintech, Cybersecurity & Digital Transformation Content</p>
-      <p class="data-line">→ SEO + Technical Documentation Architect</p>
+<!-- ========================================================
+     NAVIGATION
+======================================================== -->
+<nav id="navbar">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">GPA<em>.</em>Writer</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#resume">Résumé</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Hire Me</a>
+            <div class="nav-toggle" onclick="openMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
     </div>
+</nav>
 
-    <div class="panel">
-      <h2>CORE CAPABILITIES</h2>
-      <p class="data-line">→ Research-Driven Content Engineering</p>
-      <p class="data-line">→ SEO Optimized Knowledge Transfer</p>
-      <p class="data-line">→ Complex Concept Simplification</p>
-      <p class="data-line">→ Generative AI Augmented Writing</p>
+<!-- ========================================================
+     HERO
+======================================================== -->
+<section id="hero">
+    <div class="container">
+        <div class="hero-eyebrow">
+            <div class="hero-eyebrow-line"></div>
+            <span>Technical Writer &amp; Content Strategist</span>
+        </div>
+        <h1 class="hero-name">
+            Gayathri<br>
+            <span class="italic">P Ajith</span>
+        </h1>
+        <div class="hero-divider"></div>
+        <div class="hero-bottom">
+            <div>
+                <p class="hero-tagline">
+                    Translating the complex into the clear — from API references
+                    and developer portals to enterprise content strategy,
+                    across FinTech, Cybersecurity, AI/ML, and SaaS.
+                </p>
+                <div class="hero-domains">
+                    <span class="dtag">FinTech</span>
+                    <span class="dtag">Cybersecurity</span>
+                    <span class="dtag">AI / ML</span>
+                    <span class="dtag">API Docs</span>
+                    <span class="dtag">SaaS</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#work" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-outline">Get in Touch</a>
+            </div>
+        </div>
     </div>
+</section>
 
-    <div class="panel">
-      <h2>ACTIVE MISSIONS</h2>
-      <p class="data-line">• Techbuzz.Media Content Editor (Fintech & Infosec)</p>
-      <p class="data-line">• Published Research Author (IJCRT)</p>
-      <p class="data-line">• Creative Narrative Systems (Wattpad + WordPress)</p>
+<!-- MARQUEE STRIP -->
+<div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+        <!-- duplicated for infinite loop -->
+        <span class="marquee-item"><span class="marquee-dot"></span> API Documentation</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Content Strategy</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Developer Portals</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> FinTech</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Cybersecurity</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> AI / ML</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> SaaS Documentation</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Information Architecture</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Docs-as-Code</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Style Guides</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> OpenAPI / Swagger</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> UX Writing</span>
+        <!-- duplicate -->
+        <span class="marquee-item"><span class="marquee-dot"></span> API Documentation</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Content Strategy</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Developer Portals</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> FinTech</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Cybersecurity</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> AI / ML</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> SaaS Documentation</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Information Architecture</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Docs-as-Code</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Style Guides</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> OpenAPI / Swagger</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> UX Writing</span>
     </div>
-  </div>
+</div>
 
-  <footer>
-    © 2026 GAYATHRI P AJITH • NEURAL CONTENT DIVISION • ALL RIGHTS RESERVED
-  </footer>
+<!-- ========================================================
+     ABOUT
+======================================================== -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-left reveal">
+                <div class="section-header">
+                    <div class="section-no">— 01</div>
+                    <h2 class="section-title">About <em>Me</em></h2>
+                    <div class="section-rule"></div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-n">5+</span>
+                        <span class="stat-l">Domains</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-n">20+</span>
+                        <span class="stat-l">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-n">2</span>
+                        <span class="stat-l">Yrs Exp.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-body reveal reveal-d2">
+                <p>I'm a <strong>Technical Writer and Content Strategist</strong> working at the intersection of complex systems and human understanding. My focus is on industries where precision and clarity aren't nice-to-haves — they're critical: <strong>FinTech, Cybersecurity, AI/ML, API-first products, and developer-facing SaaS</strong>.</p>
+                <div class="pull-quote">
+                    <p>"Documentation isn't an afterthought — it's the product experience for every developer, analyst, or user who can't ask a question in real time."</p>
+                </div>
+                <p>I approach documentation as a <strong>systems problem</strong>: Who needs this? What do they need to accomplish? Where will they get stuck? My process combines structured information architecture with editorial sharpness — every document I produce is built to reduce friction and build trust at scale.</p>
+                <p>Whether it's an <strong>API reference guide</strong> for a developer portal, an <strong>incident response runbook</strong> for a SOC team, or a <strong>content strategy framework</strong> for a scaling product — I bring the same rigor: clarity of structure, precision of language, and an obsessive focus on the reader's experience.</p>
+                <a href="#contact" class="btn-outline" style="margin-top:8px;">Let's Work Together</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="sep">
+
+<!-- ========================================================
+     SKILLS
+======================================================== -->
+<section id="skills">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-no">— 02</div>
+            <h2 class="section-title">Skills &amp; <em>Expertise</em></h2>
+            <div class="section-rule"></div>
+        </div>
+        <div class="skills-grid">
+            <!-- Writing & Docs -->
+            <div class="skill-col reveal">
+                <div class="skill-col-head">
+                    <div class="sk-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <span class="sk-title">Writing &amp; Documentation</span>
+                </div>
+                <ul class="sk-list">
+                    <li>API Reference Documentation</li>
+                    <li>Developer Guides &amp; Tutorials</li>
+                    <li>User Manuals &amp; SOPs</li>
+                    <li>Knowledge Base Articles</li>
+                    <li>Release Notes &amp; Changelogs</li>
+                    <li>UX Microcopy &amp; Tooltips</li>
+                    <li>Incident Runbooks &amp; Playbooks</li>
+                    <li>White Papers &amp; Case Studies</li>
+                </ul>
+            </div>
+            <!-- Content Strategy -->
+            <div class="skill-col reveal reveal-d2">
+                <div class="skill-col-head">
+                    <div class="sk-icon">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    </div>
+                    <span class="sk-title">Content Strategy</span>
+                </div>
+                <ul class="sk-list">
+                    <li>Information Architecture</li>
+                    <li>Content Audits &amp; Gap Analysis</li>
+                    <li>Style Guide Development</li>
+                    <li>Docs-as-Code Workflows</li>
+                    <li>Content Governance Frameworks</li>
+                    <li>Audience &amp; User Research</li>
+                    <li>SEO for Technical Content</li>
+                    <li>Editorial Planning &amp; Roadmaps</li>
+                </ul>
+            </div>
+            <!-- Tools -->
+            <div class="skill-col reveal reveal-d3">
+                <div class="skill-col-head">
+                    <div class="sk-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <span class="sk-title">Tools &amp; Platforms</span>
+                </div>
+                <div class="chips">
+                    <span class="chip">Confluence</span>
+                    <span class="chip">Notion</span>
+                    <span class="chip">GitHub</span>
+                    <span class="chip">GitLab</span>
+                    <span class="chip">Swagger / OpenAPI</span>
+                    <span class="chip">Postman</span>
+                    <span class="chip">Markdown</span>
+                    <span class="chip">DITA</span>
+                    <span class="chip">Figma</span>
+                    <span class="chip">Miro</span>
+                    <span class="chip">Jira</span>
+                    <span class="chip">VS Code</span>
+                    <span class="chip">Zendesk</span>
+                    <span class="chip">MadCap Flare</span>
+                    <span class="chip">Google Docs</span>
+                    <span class="chip">MS 365</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="sep">
+
+<!-- ========================================================
+     WORK SAMPLES
+======================================================== -->
+<section id="work">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-no">— 03</div>
+            <h2 class="section-title">Work <em>Samples</em></h2>
+            <div class="section-rule"></div>
+        </div>
+        <div class="work-filter reveal">
+            <button class="fbtn active" data-filter="all">All</button>
+            <button class="fbtn" data-filter="fintech">FinTech</button>
+            <button class="fbtn" data-filter="cybersecurity">Cybersecurity</button>
+            <button class="fbtn" data-filter="ai-ml">AI / ML</button>
+            <button class="fbtn" data-filter="api">API Docs</button>
+            <button class="fbtn" data-filter="saas">SaaS</button>
+        </div>
+        <div class="work-grid">
+            <!-- Featured card -->
+            <div class="wcard featured reveal" data-category="api fintech">
+                <div>
+                    <div class="wcard-idx">Featured — 001</div>
+                    <div class="wcard-domain">API Documentation · FinTech</div>
+                    <h3 class="wcard-title">Payment Gateway REST API Reference</h3>
+                </div>
+                <div>
+                    <p class="wcard-desc">
+                        Comprehensive REST API reference for a payment gateway product — OAuth 2.0 &amp; API key authentication flows, all endpoint specifications, error code taxonomy, rate limiting policy, and working code samples in Python, Node.js, and cURL. Designed to take a developer from zero to first successful call in under 30 minutes.
+                    </p>
+                    <div class="wcard-tags">
+                        <span class="wtag">REST API</span>
+                        <span class="wtag">OpenAPI / Swagger</span>
+                        <span class="wtag">Developer Docs</span>
+                        <span class="wtag">FinTech</span>
+                    </div>
+                    <div style="margin-top:24px;">
+                        <a href="#" class="btn-outline" style="font-size:.7rem; padding:10px 18px;">View Sample →</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="wcard reveal" data-category="cybersecurity">
+                <div class="wcard-idx">002</div>
+                <div class="wcard-domain">Cybersecurity</div>
+                <h3 class="wcard-title">Incident Response Runbook &amp; SOC Playbook</h3>
+                <p class="wcard-desc">End-to-end incident response documentation covering detection, triage, containment, eradication, and post-incident review. Written for a 500-person SOC team with RACI matrices, decision trees, and escalation paths.</p>
+                <div class="wcard-tags">
+                    <span class="wtag">Runbook</span>
+                    <span class="wtag">SOC</span>
+                    <span class="wtag">SOP</span>
+                    <span class="wtag">Cybersecurity</span>
+                </div>
+                <div class="wcard-arrow">
+                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="wcard reveal reveal-d2" data-category="ai-ml">
+                <div class="wcard-idx">003</div>
+                <div class="wcard-domain">AI / ML</div>
+                <h3 class="wcard-title">ML Pipeline Documentation Suite &amp; Model Cards</h3>
+                <p class="wcard-desc">Documentation package for an internal ML deployment pipeline: system architecture overview, data schema references, model cards (Mitchell et al. framework), and operational runbooks for MLOps engineers and data scientists.</p>
+                <div class="wcard-tags">
+                    <span class="wtag">AI / ML</span>
+                    <span class="wtag">Model Cards</span>
+                    <span class="wtag">MLOps</span>
+                    <span class="wtag">Internal Docs</span>
+                </div>
+                <div class="wcard-arrow">
+                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="wcard reveal" data-category="saas">
+                <div class="wcard-idx">004</div>
+                <div class="wcard-domain">SaaS · Content Strategy</div>
+                <h3 class="wcard-title">Knowledge Base Redesign &amp; IA Overhaul</h3>
+                <p class="wcard-desc">Restructured a 200+ article legacy help center into a user-journey-based knowledge base with improved taxonomy, search optimisation, and task-oriented article structure — reducing average support resolution time measurably.</p>
+                <div class="wcard-tags">
+                    <span class="wtag">SaaS</span>
+                    <span class="wtag">IA</span>
+                    <span class="wtag">Knowledge Base</span>
+                    <span class="wtag">Help Centre</span>
+                </div>
+                <div class="wcard-arrow">
+                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="wcard reveal reveal-d2" data-category="api saas">
+                <div class="wcard-idx">005</div>
+                <div class="wcard-domain">Content Strategy · Developer Portal</div>
+                <h3 class="wcard-title">Developer Portal Content Strategy &amp; Style Guide</h3>
+                <p class="wcard-desc">Designed and executed a full content strategy for a B2B developer portal — establishing tone of voice, documentation taxonomy, information hierarchy, and a style guide adopted across a 12-person engineering team.</p>
+                <div class="wcard-tags">
+                    <span class="wtag">Content Strategy</span>
+                    <span class="wtag">Style Guide</span>
+                    <span class="wtag">Dev Portal</span>
+                </div>
+                <div class="wcard-arrow">
+                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="sep">
+
+<!-- ========================================================
+     RESUME / EXPERIENCE
+======================================================== -->
+<section id="resume">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-no">— 04</div>
+            <h2 class="section-title">Experience &amp; <em>Background</em></h2>
+            <div class="section-rule"></div>
+        </div>
+        <div class="resume-grid">
+            <!-- Experience -->
+            <div class="reveal">
+                <div class="col-label">// Experience</div>
+                <div class="timeline">
+                    <div class="titem">
+                        <div class="tline"><div class="tdot"></div><div class="tconn"></div></div>
+                        <div>
+                            <div class="tdate">2024 — Present</div>
+                            <div class="trole">Freelance Technical Writer &amp; Content Strategist</div>
+                            <div class="torg">Independent · Remote</div>
+                            <p class="tdesc">Delivering end-to-end documentation and content strategy for clients across FinTech, Cybersecurity, and AI sectors. Projects include REST API reference documentation, developer onboarding guides, knowledge base restructuring, and content governance frameworks for product teams.</p>
+                        </div>
+                    </div>
+                    <div class="titem">
+                        <div class="tline"><div class="tdot"></div><div class="tconn"></div></div>
+                        <div>
+                            <div class="tdate">2023 — 2024</div>
+                            <div class="trole">Junior Technical Writer</div>
+                            <div class="torg">SaaS / Technology Company · India</div>
+                            <p class="tdesc">Created and maintained API documentation, user guides, and internal SOPs. Collaborated with engineering and product teams to document new feature releases. Led the transition of documentation workflows to a docs-as-code model using Markdown and GitHub.</p>
+                        </div>
+                    </div>
+                    <div class="titem">
+                        <div class="tline"><div class="tdot"></div><div class="tconn"></div></div>
+                        <div>
+                            <div class="tdate">2022 — 2023</div>
+                            <div class="trole">Content &amp; Documentation Intern</div>
+                            <div class="torg">Tech Startup · India</div>
+                            <p class="tdesc">Drafted help articles, product changelog entries, and onboarding materials. Assisted in user interviews to improve documentation quality, coverage, and findability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Education & Certs -->
+            <div class="reveal reveal-d2">
+                <div class="col-label">// Education &amp; Certifications</div>
+                <div class="timeline" style="margin-bottom:32px;">
+                    <div class="titem">
+                        <div class="tline"><div class="tdot"></div><div class="tconn"></div></div>
+                        <div>
+                            <div class="tdate">2019 — 2023</div>
+                            <div class="trole">Bachelor's Degree</div>
+                            <div class="torg">University · India</div>
+                            <p class="tdesc">Add your degree and field of study here.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-list">
+                    <div class="cert">
+                        <div class="cert-ico">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
+                        <div>
+                            <div class="cert-name">Technical Writing Fundamentals</div>
+                            <div class="cert-src">Google Developers · 2023</div>
+                        </div>
+                    </div>
+                    <div class="cert">
+                        <div class="cert-ico">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
+                        <div>
+                            <div class="cert-name">API Documentation with Swagger &amp; OpenAPI</div>
+                            <div class="cert-src">iDratherBeWriting / Udemy · 2023</div>
+                        </div>
+                    </div>
+                    <div class="cert">
+                        <div class="cert-ico">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
+                        <div>
+                            <div class="cert-name">Content Strategy for Professionals</div>
+                            <div class="cert-src">Northwestern University · Coursera · 2024</div>
+                        </div>
+                    </div>
+                    <div class="cert">
+                        <div class="cert-ico">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
+                        <div>
+                            <div class="cert-name">Information Architecture Fundamentals</div>
+                            <div class="cert-src">LinkedIn Learning · 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="sep">
+
+<!-- ========================================================
+     BLOG / ARTICLES
+======================================================== -->
+<section id="blog">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-no">— 05</div>
+            <h2 class="section-title">Thoughts &amp; <em>Writing</em></h2>
+            <div class="section-rule"></div>
+        </div>
+        <div class="blog-grid">
+            <div class="bcard reveal">
+                <div class="bcard-meta">
+                    <span class="btag">API Docs</span>
+                    <span class="bdate">May 2025</span>
+                </div>
+                <h3 class="bcard-title">Why Your API Documentation Is Losing You Developers</h3>
+                <p class="bcard-excerpt">Most API docs fail before the first endpoint. The problem isn't the content — it's the structure. Here's what separates documentation that onboards in 20 minutes from docs that generate support tickets.</p>
+                <a href="#" class="breadmore">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+            <div class="bcard reveal reveal-d2">
+                <div class="bcard-meta">
+                    <span class="btag">Content Strategy</span>
+                    <span class="bdate">March 2025</span>
+                </div>
+                <h3 class="bcard-title">Information Architecture for Technical Writers: A Practical Guide</h3>
+                <p class="bcard-excerpt">IA isn't just for UX designers. Technical writers who understand information architecture build documentation systems that scale — and don't collapse under their own weight three months post-launch.</p>
+                <a href="#" class="breadmore">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+            <div class="bcard reveal reveal-d3">
+                <div class="bcard-meta">
+                    <span class="btag">Docs-as-Code</span>
+                    <span class="bdate">January 2025</span>
+                </div>
+                <h3 class="bcard-title">Treating Documentation as a Product: The Case for Docs-as-Code</h3>
+                <p class="bcard-excerpt">Documentation that lives outside the development workflow is documentation that falls behind. How I set up a docs-as-code pipeline on GitHub — and what changed when we did.</p>
+                <a href="#" class="breadmore">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="sep">
+
+<!-- ========================================================
+     CONTACT
+======================================================== -->
+<section id="contact">
+    <div class="container">
+        <div class="reveal">
+            <div class="avail-badge">
+                <span class="avail-dot"></span>
+                Open to freelance projects &amp; full-time opportunities
+            </div>
+            <h2 class="contact-headline">
+                Let's build<br>something <em>clear.</em>
+            </h2>
+            <p class="contact-sub">
+                Whether you need an API documented, a content system architected,
+                or a full documentation strategy for your product team — I'd love to talk.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:gayathri@example.com" class="clink">
+                    <div class="clink-l">
+                        <div class="clink-ico">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <div class="clink-lbl">Email</div>
+                            <div class="clink-val">gayathri@example.com</div>
+                        </div>
+                    </div>
+                    <div class="clink-arr"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </a>
+                <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" class="clink">
+                    <div class="clink-l">
+                        <div class="clink-ico">
+                            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </div>
+                        <div>
+                            <div class="clink-lbl">LinkedIn</div>
+                            <div class="clink-val">linkedin.com/in/gayathri-p-ajith</div>
+                        </div>
+                    </div>
+                    <div class="clink-arr"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </a>
+                <a href="https://github.com/your-username" target="_blank" rel="noopener" class="clink">
+                    <div class="clink-l">
+                        <div class="clink-ico">
+                            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        </div>
+                        <div>
+                            <div class="clink-lbl">GitHub</div>
+                            <div class="clink-val">github.com/gayathri-p-ajith</div>
+                        </div>
+                    </div>
+                    <div class="clink-arr"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================================
+     FOOTER
+======================================================== -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-copy">© 2025 <span>Gayathri P Ajith</span> · Technical Writer &amp; Content Strategist</div>
+            <nav class="footer-links">
+                <a href="#about">About</a>
+                <a href="#work">Work</a>
+                <a href="#resume">Résumé</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
+        </div>
+    </div>
+</footer>
+
+<!-- ========================================================
+     JAVASCRIPT
+======================================================== -->
+<script>
+    // Navbar scroll state
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 24);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Mobile menu
+    function openMobileMenu() {
+        document.getElementById('mobileMenu').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        document.getElementById('mobileMenu').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    // Scroll reveal
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                revealObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Work filter
+    const filterBtns = document.querySelectorAll('.fbtn');
+    const workCards  = document.querySelectorAll('.wcard[data-category]');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const f = btn.dataset.filter;
+            workCards.forEach(card => {
+                const cats = card.dataset.category || '';
+                card.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
+            });
+        });
+    });
+
+    // Active nav link highlight on scroll
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-links a');
+    const activeObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                navLinks.forEach(a => {
+                    a.style.color = (a.getAttribute('href') === '#' + e.target.id)
+                        ? 'var(--text-primary)' : '';
+                });
+            }
+        });
+    }, { threshold: 0.45 });
+    sections.forEach(s => activeObs.observe(s));
+</script>
+
 </body>
 </html>
