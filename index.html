@@ -3,41 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gayathri P Ajith — Technical Writer & Content Strategist</title>
-    <meta name="description" content="Technical Writer & Content Strategist specializing in FinTech, Cybersecurity, AI/ML, API Documentation, and SaaS.">
-    <meta property="og:title" content="Gayathri P Ajith — Technical Writer & Content Strategist">
-    <meta property="og:description" content="Translating the complex into the clear — from API references to enterprise content strategy.">
+    <title>Gayathri P Ajith — Content Editor & Technical Writer</title>
+    <meta name="description" content="Content Editor & Technical Writer specialising in FinTech, Cybersecurity, AI/ML, and Digital Technology content.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
 
     /* ======================================================
-       CSS CUSTOM PROPERTIES
+       CSS CUSTOM PROPERTIES — MINIMALIST BLUE/WHITE THEME
     ====================================================== */
     :root {
-        --bg-primary:       #07090D;
-        --bg-surface:       #0C0F17;
-        --bg-card:          #111520;
-        --bg-card-hover:    #151A28;
-        --border:           rgba(255,255,255,0.07);
-        --border-accent:    rgba(196,163,90,0.35);
-        --text-primary:     #EDE8DE;
-        --text-secondary:   #78819A;
-        --text-muted:       #42495E;
-        --accent:           #C4A35A;
-        --accent-light:     #D4B870;
-        --accent-glow:      rgba(196,163,90,0.10);
-        --green:            #4ade80;
-        --green-glow:       rgba(74,222,128,0.15);
-        --font-display:     'Cormorant Garamond', Georgia, serif;
-        --font-ui:          'Syne', sans-serif;
-        --font-mono:        'IBM Plex Mono', 'Courier New', monospace;
-        --nav-h:            72px;
-        --pad-section:      120px;
-        --container:        1180px;
-        --ease:             cubic-bezier(0.4,0,0.2,1);
-        --t:                0.3s;
+        /* Backgrounds */
+        --bg-primary:    #FFFFFF;
+        --bg-surface:    #F2F6FF;
+        --bg-card:       #FFFFFF;
+        --bg-card-hover: #EAF0FF;
+
+        /* Borders */
+        --border:        rgba(29, 78, 216, 0.10);
+        --border-accent: rgba(29, 78, 216, 0.36);
+
+        /* Text */
+        --text-primary:  #0B1B38;
+        --text-secondary:#455178;
+        --text-muted:    #8E9DBC;
+
+        /* Blues */
+        --accent:        #1D4ED8;
+        --accent-light:  #3B82F6;
+        --accent-pale:   #EFF6FF;
+        --accent-glow:   rgba(29, 78, 216, 0.07);
+        --accent-dark:   #1E40AF;
+
+        /* Shadows */
+        --shadow:        0 1px 4px rgba(11,27,56,.07), 0 1px 2px rgba(11,27,56,.04);
+        --shadow-hover:  0 6px 22px rgba(29,78,216,.10), 0 2px 6px rgba(29,78,216,.05);
+
+        /* Status */
+        --green:         #16A34A;
+        --green-glow:    rgba(22, 163, 74, 0.12);
+
+        /* Type */
+        --font-display:  'Cormorant Garamond', Georgia, serif;
+        --font-ui:       'Syne', sans-serif;
+        --font-mono:     'IBM Plex Mono', monospace;
+
+        /* Layout */
+        --nav-h:         72px;
+        --pad-section:   120px;
+        --container:     1180px;
+        --ease:          cubic-bezier(0.4, 0, 0.2, 1);
+        --t:             0.3s;
     }
 
     /* ======================================================
@@ -55,16 +72,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    /* Subtle film grain */
-    body::after {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 9998;
-        opacity: 0.5;
-    }
     a { color: inherit; text-decoration: none; }
     ul { list-style: none; }
     .container {
@@ -78,7 +85,7 @@
     ====================================================== */
     .reveal {
         opacity: 0;
-        transform: translateY(28px);
+        transform: translateY(26px);
         transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
     }
     .reveal.visible { opacity: 1; transform: none; }
@@ -91,10 +98,10 @@
     /* ======================================================
        PAGE-LOAD ANIMATIONS
     ====================================================== */
-    @keyframes fadeUp   { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
     @keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
     @keyframes growX    { from { transform:scaleX(0); } to { transform:scaleX(1); } }
-    @keyframes pulse    { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(.75); } }
+    @keyframes pulse    { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.45; transform:scale(.72); } }
 
     /* ======================================================
        NAV
@@ -104,14 +111,15 @@
         inset: 0 0 auto 0;
         height: var(--nav-h);
         z-index: 1000;
-        transition: background var(--t) var(--ease), border-color var(--t) var(--ease);
+        transition: background var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t);
         border-bottom: 1px solid transparent;
     }
     #navbar.scrolled {
-        background: rgba(7,9,13,0.90);
+        background: rgba(255, 255, 255, 0.94);
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
         border-bottom-color: var(--border);
+        box-shadow: 0 1px 8px rgba(11,27,56,.06);
     }
     .nav-inner {
         display: flex;
@@ -127,10 +135,7 @@
         color: var(--text-primary);
     }
     .nav-logo em { color: var(--accent); font-style: normal; }
-    .nav-links {
-        display: flex;
-        gap: 34px;
-    }
+    .nav-links { display: flex; gap: 34px; }
     .nav-links a {
         font-family: var(--font-ui);
         font-size: 0.75rem;
@@ -150,7 +155,7 @@
         background: var(--accent);
         transition: width var(--t) var(--ease);
     }
-    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a:hover { color: var(--accent); }
     .nav-links a:hover::after { width: 100%; }
     .nav-cta {
         font-family: var(--font-mono);
@@ -172,8 +177,7 @@
     }
     .nav-toggle span {
         display: block;
-        width: 22px;
-        height: 1px;
+        width: 22px; height: 1px;
         background: var(--text-primary);
         transition: var(--t);
     }
@@ -191,6 +195,7 @@
         align-items: center;
         justify-content: center;
         gap: 28px;
+        border-top: 3px solid var(--accent);
     }
     #mobileMenu.open { display: flex; }
     #mobileMenu a {
@@ -199,7 +204,6 @@
         font-weight: 300;
         color: var(--text-secondary);
         transition: color var(--t);
-        letter-spacing: -0.01em;
     }
     #mobileMenu a:hover { color: var(--accent); }
     #mobileMenu .close-btn {
@@ -229,14 +233,18 @@
         font-weight: 700;
         letter-spacing: 0.09em;
         text-transform: uppercase;
-        color: var(--bg-primary);
+        color: #FFFFFF;
         background: var(--accent);
         padding: 14px 28px;
         border: none;
         cursor: pointer;
-        transition: background var(--t), transform var(--t);
+        transition: background var(--t), transform var(--t), box-shadow var(--t);
     }
-    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+    .btn-primary:hover {
+        background: var(--accent-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(29,78,216,.25);
+    }
     .btn-outline {
         display: inline-flex;
         align-items: center;
@@ -246,14 +254,18 @@
         font-weight: 700;
         letter-spacing: 0.09em;
         text-transform: uppercase;
-        color: var(--text-primary);
-        border: 1px solid var(--border);
+        color: var(--accent);
+        border: 1px solid var(--border-accent);
         padding: 14px 28px;
         cursor: pointer;
         background: transparent;
-        transition: border-color var(--t), color var(--t), transform var(--t);
+        transition: border-color var(--t), background var(--t), transform var(--t);
     }
-    .btn-outline:hover { border-color: var(--border-accent); color: var(--accent); transform: translateY(-2px); }
+    .btn-outline:hover {
+        background: var(--accent-glow);
+        border-color: var(--accent);
+        transform: translateY(-2px);
+    }
 
     /* ======================================================
        SECTION STRUCTURE
@@ -273,13 +285,14 @@
         font-weight: 300;
         line-height: 1.05;
         letter-spacing: -0.01em;
+        color: var(--text-primary);
     }
     .section-title em { font-style: italic; color: var(--accent); }
     .section-rule {
-        width: 52px;
-        height: 1px;
+        width: 52px; height: 2px;
         background: var(--accent);
         margin-top: 22px;
+        border-radius: 1px;
     }
     .sep { border: none; border-top: 1px solid var(--border); margin: 0; }
 
@@ -294,28 +307,28 @@
         padding-top: var(--nav-h);
         padding-bottom: 90px;
         overflow: hidden;
+        background: var(--bg-primary);
     }
-    /* Grid bg */
+    /* Subtle dot/line grid */
     #hero::before {
         content: '';
         position: absolute;
         inset: 0;
         background-image:
-            linear-gradient(rgba(196,163,90,.035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(196,163,90,.035) 1px, transparent 1px);
+            linear-gradient(rgba(29,78,216,.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(29,78,216,.025) 1px, transparent 1px);
         background-size: 72px 72px;
-        mask-image: radial-gradient(ellipse 90% 65% at 50% 100%, black 30%, transparent 100%);
-        -webkit-mask-image: radial-gradient(ellipse 90% 65% at 50% 100%, black 30%, transparent 100%);
+        mask-image: radial-gradient(ellipse 90% 70% at 50% 100%, black 30%, transparent 100%);
+        -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 100%, black 30%, transparent 100%);
         pointer-events: none;
     }
-    /* Radial glow behind name */
+    /* Soft blue glow accent top-right */
     #hero::after {
         content: '';
         position: absolute;
-        top: 20%; left: 50%;
-        transform: translateX(-50%);
-        width: 700px; height: 500px;
-        background: radial-gradient(ellipse at center, rgba(196,163,90,.04) 0%, transparent 70%);
+        top: 0; right: 0;
+        width: 55%; height: 65%;
+        background: radial-gradient(ellipse at 80% 20%, rgba(59,130,246,.07) 0%, transparent 70%);
         pointer-events: none;
     }
     .hero-eyebrow {
@@ -339,12 +352,13 @@
         font-weight: 300;
         line-height: 0.9;
         letter-spacing: -0.025em;
+        color: var(--text-primary);
         animation: fadeUp 0.9s var(--ease) 0.3s both;
     }
     .hero-name .italic { font-style: italic; color: var(--accent); }
     .hero-divider {
         height: 1px;
-        background: linear-gradient(90deg, var(--border-accent) 0%, transparent 70%);
+        background: linear-gradient(90deg, var(--accent) 0%, rgba(29,78,216,.15) 60%, transparent 100%);
         margin: 44px 0;
         transform-origin: left;
         animation: growX 0.9s var(--ease) 0.7s both;
@@ -377,12 +391,13 @@
         font-size: 0.62rem;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--text-muted);
-        border: 1px solid var(--border);
+        color: var(--accent-light);
+        background: var(--accent-pale);
+        border: 1px solid var(--border-accent);
         padding: 4px 10px;
-        transition: color var(--t), border-color var(--t);
+        transition: background var(--t), color var(--t);
     }
-    .dtag:hover { color: var(--accent); border-color: var(--border-accent); }
+    .dtag:hover { background: var(--accent-glow); color: var(--accent); }
     .hero-actions {
         display: flex;
         justify-content: flex-end;
@@ -407,7 +422,7 @@
         animation: marquee 30s linear infinite;
     }
     .marquee-track:hover { animation-play-state: paused; }
-    @keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+    @keyframes marquee { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
     .marquee-item {
         display: inline-flex;
         align-items: center;
@@ -419,12 +434,11 @@
         text-transform: uppercase;
         color: var(--text-muted);
     }
-    .marquee-dot { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+    .marquee-dot { width:4px; height:4px; background:var(--accent); border-radius:50%; flex-shrink:0; }
 
     /* ======================================================
        ABOUT
     ====================================================== */
-    #about { border-top: none; }
     .about-grid {
         display: grid;
         grid-template-columns: 1fr 1.6fr;
@@ -441,7 +455,7 @@
         margin-top: 36px;
     }
     .stat {
-        background: var(--bg-surface);
+        background: var(--accent-pale);
         padding: 22px 14px;
         text-align: center;
     }
@@ -472,9 +486,12 @@
     }
     .about-body p strong { color: var(--text-primary); font-weight: 500; }
     .pull-quote {
-        border-left: 2px solid var(--accent);
+        border-left: 3px solid var(--accent);
         padding: 4px 0 4px 28px;
         margin: 44px 0;
+        background: var(--accent-pale);
+        padding: 20px 0 20px 28px;
+        border-right: none;
     }
     .pull-quote p {
         font-family: var(--font-display);
@@ -482,6 +499,7 @@
         font-style: italic;
         color: var(--text-primary) !important;
         line-height: 1.5 !important;
+        margin: 0 !important;
     }
 
     /* ======================================================
@@ -495,11 +513,12 @@
         background: var(--border);
     }
     .skill-col {
-        background: var(--bg-primary);
+        background: var(--bg-card);
         padding: 40px 36px;
-        transition: background var(--t);
+        transition: background var(--t), box-shadow var(--t);
+        box-shadow: var(--shadow);
     }
-    .skill-col:hover { background: var(--bg-card); }
+    .skill-col:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); }
     .skill-col-head {
         display: flex;
         align-items: center;
@@ -511,12 +530,13 @@
     .sk-icon {
         width: 32px; height: 32px;
         border: 1px solid var(--border-accent);
+        background: var(--accent-pale);
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
     }
-    .sk-icon svg { width:14px; height:14px; stroke: var(--accent); fill:none; stroke-width:1.5; }
+    .sk-icon svg { width:14px; height:14px; stroke:var(--accent); fill:none; stroke-width:1.5; }
     .sk-title {
         font-family: var(--font-ui);
         font-size: 0.72rem;
@@ -537,29 +557,28 @@
     .sk-list li::before {
         content: '';
         width: 3px; height: 3px;
-        background: var(--accent);
+        background: var(--accent-light);
         border-radius: 50%;
         flex-shrink: 0;
-        opacity: 0.7;
     }
-    .sk-list li:hover { color: var(--text-primary); }
+    .sk-list li:hover { color: var(--accent); }
     .chips { display:flex; flex-wrap:wrap; gap:7px; }
     .chip {
         font-family: var(--font-mono);
         font-size: 0.62rem;
         letter-spacing: 0.08em;
-        color: var(--text-muted);
+        color: var(--text-secondary);
         border: 1px solid var(--border);
+        background: var(--bg-surface);
         padding: 5px 10px;
-        transition: color var(--t), border-color var(--t);
+        transition: color var(--t), border-color var(--t), background var(--t);
         cursor: default;
     }
-    .chip:hover { color: var(--accent); border-color: var(--border-accent); }
+    .chip:hover { color: var(--accent); border-color: var(--border-accent); background: var(--accent-pale); }
 
     /* ======================================================
        WORK SAMPLES
     ====================================================== */
-    #work {}
     .work-filter {
         display: flex;
         gap: 7px;
@@ -581,33 +600,38 @@
     .fbtn.active, .fbtn:hover {
         color: var(--accent);
         border-color: var(--border-accent);
-        background: var(--accent-glow);
+        background: var(--accent-pale);
     }
     .work-grid {
         display: grid;
         grid-template-columns: repeat(2,1fr);
-        gap: 2px;
-        background: var(--border);
+        gap: 16px;
     }
     .wcard {
         background: var(--bg-card);
         padding: 40px;
         position: relative;
         overflow: hidden;
-        transition: background var(--t);
+        transition: background var(--t), box-shadow var(--t), transform var(--t);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
         cursor: default;
     }
     .wcard::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0;
-        height: 2px;
+        height: 3px;
         background: var(--accent);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 0.45s var(--ease);
     }
-    .wcard:hover { background: var(--bg-card-hover); }
+    .wcard:hover {
+        background: var(--bg-card-hover);
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-2px);
+    }
     .wcard:hover::before { transform: scaleX(1); }
     .wcard-idx {
         font-family: var(--font-mono);
@@ -643,8 +667,9 @@
         font-family: var(--font-mono);
         font-size: 0.58rem;
         letter-spacing: 0.07em;
-        color: var(--text-muted);
-        border: 1px solid var(--border);
+        color: var(--accent-light);
+        border: 1px solid var(--border-accent);
+        background: var(--accent-pale);
         padding: 3px 8px;
     }
     .wcard-arrow {
@@ -656,17 +681,20 @@
         align-items: center;
         justify-content: center;
         transition: border-color var(--t), background var(--t);
+        background: var(--bg-surface);
     }
-    .wcard-arrow svg { width:13px; height:13px; stroke: var(--accent); fill:none; stroke-width:1.5; }
-    .wcard:hover .wcard-arrow { border-color: var(--border-accent); background: var(--accent-glow); }
-    /* featured spans full width */
+    .wcard-arrow svg { width:13px; height:13px; stroke:var(--accent); fill:none; stroke-width:1.5; }
+    .wcard:hover .wcard-arrow { border-color: var(--border-accent); background: var(--accent-pale); }
+    /* featured card */
     .wcard.featured {
         grid-column: 1 / -1;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 64px;
         align-items: start;
+        border-top: 3px solid var(--accent);
     }
+    .wcard.featured::before { display: none; }
     .wcard.featured .wcard-title { font-size: clamp(22px,3vw,34px); }
 
     /* ======================================================
@@ -686,82 +714,91 @@
         color: var(--accent);
         margin-bottom: 32px;
         padding-bottom: 14px;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 2px solid var(--accent-pale);
     }
     .timeline { display:flex; flex-direction:column; }
     .titem { display:grid; grid-template-columns:10px 1fr; gap:24px; padding-bottom:36px; }
     .titem:last-child { padding-bottom: 0; }
     .tline { display:flex; flex-direction:column; align-items:center; }
     .tdot {
-        width: 7px; height: 7px;
+        width: 8px; height: 8px;
         background: var(--accent);
-        border: 1px solid var(--accent);
+        border: 2px solid var(--accent-pale);
+        box-shadow: 0 0 0 2px var(--accent);
         flex-shrink: 0;
-        margin-top: 5px;
+        margin-top: 4px;
+        border-radius: 50%;
     }
-    .tconn { flex:1; width:1px; background:var(--border); margin-top:6px; }
+    .tconn { flex:1; width:1px; background:var(--border-accent); margin-top:6px; opacity:0.4; }
     .titem:last-child .tconn { display:none; }
-    .tdate { font-family:var(--font-mono); font-size:0.6rem; letter-spacing:.08em; color:var(--text-muted); margin-bottom:6px; }
+    .tdate { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.08em; color:var(--text-muted); margin-bottom:6px; }
     .trole { font-family:var(--font-ui); font-size:.9rem; font-weight:700; color:var(--text-primary); margin-bottom:3px; }
     .torg { font-family:var(--font-display); font-size:.95rem; font-style:italic; color:var(--accent); margin-bottom:8px; }
     .tdesc { font-size:.8rem; color:var(--text-secondary); line-height:1.65; }
-    .cert-list { display:flex; flex-direction:column; gap:12px; }
+    .cert-list { display:flex; flex-direction:column; gap:10px; }
     .cert {
         display: flex;
         gap: 14px;
         align-items: center;
-        padding: 18px 20px;
+        padding: 16px 18px;
         border: 1px solid var(--border);
-        transition: border-color var(--t), background var(--t);
+        background: var(--bg-card);
+        transition: border-color var(--t), background var(--t), transform var(--t);
+        box-shadow: var(--shadow);
     }
-    .cert:hover { border-color:var(--border-accent); background:var(--accent-glow); }
+    .cert:hover { border-color:var(--border-accent); background:var(--accent-pale); transform: translateX(4px); }
     .cert-ico {
-        width:34px; height:34px;
+        width:32px; height:32px;
         border:1px solid var(--border-accent);
-        background: var(--accent-glow);
+        background: var(--accent-pale);
         display:flex; align-items:center; justify-content:center;
         flex-shrink: 0;
+        border-radius: 2px;
     }
-    .cert-ico svg { width:14px; height:14px; stroke:var(--accent); fill:none; stroke-width:1.5; }
-    .cert-name { font-family:var(--font-ui); font-size:.84rem; font-weight:600; color:var(--text-primary); }
-    .cert-src { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.07em; color:var(--text-muted); margin-top:2px; }
+    .cert-ico svg { width:13px; height:13px; stroke:var(--accent); fill:none; stroke-width:1.5; }
+    .cert-name { font-family:var(--font-ui); font-size:.82rem; font-weight:600; color:var(--text-primary); }
+    .cert-src { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.07em; color:var(--text-muted); margin-top:2px; }
 
     /* ======================================================
        BLOG
     ====================================================== */
-    #blog {}
     .blog-grid {
         display: grid;
         grid-template-columns: repeat(3,1fr);
-        gap: 2px;
-        background: var(--border);
+        gap: 16px;
     }
     .bcard {
         background: var(--bg-card);
         padding: 36px;
-        transition: background var(--t);
+        transition: background var(--t), box-shadow var(--t), transform var(--t);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
         position: relative;
         overflow: hidden;
     }
-    .bcard:hover { background: var(--bg-card-hover); }
-    .bcard::after {
+    .bcard:hover {
+        background: var(--bg-card-hover);
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-2px);
+    }
+    .bcard::before {
         content: '';
         position: absolute;
         bottom: 0; left: 0; right: 0;
-        height: 1px;
+        height: 2px;
         background: var(--accent);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 0.4s var(--ease);
     }
-    .bcard:hover::after { transform: scaleX(1); }
+    .bcard:hover::before { transform: scaleX(1); }
     .bcard-meta {
         display: flex;
         align-items: center;
         gap: 10px;
         margin-bottom: 18px;
     }
-    .btag { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
+    .btag { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); background:var(--accent-pale); padding:2px 7px; }
     .bdate { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.07em; color:var(--text-muted); }
     .bcard-title {
         font-family: var(--font-display);
@@ -802,7 +839,8 @@
         letter-spacing: .12em;
         text-transform: uppercase;
         color: var(--green);
-        border: 1px solid rgba(74,222,128,.2);
+        border: 1px solid rgba(22,163,74,.25);
+        background: var(--green-glow);
         padding: 6px 14px;
         margin-bottom: 36px;
     }
@@ -832,26 +870,33 @@
         max-width: 560px;
         line-height: 1.65;
     }
-    .contact-links { display:flex; flex-direction:column; gap:2px; max-width:680px; }
+    .contact-links { display:flex; flex-direction:column; gap:10px; max-width:680px; }
     .clink {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 18px 22px;
         border: 1px solid var(--border);
-        background: var(--bg-primary);
-        transition: border-color var(--t), background var(--t);
+        background: var(--bg-card);
+        box-shadow: var(--shadow);
+        transition: border-color var(--t), background var(--t), transform var(--t), box-shadow var(--t);
     }
-    .clink:hover { border-color:var(--border-accent); background:var(--accent-glow); }
+    .clink:hover {
+        border-color: var(--border-accent);
+        background: var(--accent-pale);
+        transform: translateX(4px);
+        box-shadow: var(--shadow-hover);
+    }
     .clink-l { display:flex; align-items:center; gap:16px; }
     .clink-ico {
         width:34px; height:34px;
         border:1px solid var(--border);
+        background: var(--bg-surface);
         display:flex; align-items:center; justify-content:center;
-        transition: border-color var(--t);
         flex-shrink:0;
+        transition: border-color var(--t), background var(--t);
     }
-    .clink:hover .clink-ico { border-color:var(--border-accent); }
+    .clink:hover .clink-ico { border-color:var(--border-accent); background:var(--accent-pale); }
     .clink-ico svg { width:13px; height:13px; stroke:var(--accent); fill:none; stroke-width:1.5; }
     .clink-lbl { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
     .clink-val { font-family:var(--font-ui); font-size:.88rem; color:var(--text-primary); margin-top:2px; }
@@ -873,17 +918,9 @@
         flex-wrap: wrap;
         gap: 16px;
     }
-    .footer-copy {
-        font-family: var(--font-mono);
-        font-size: .62rem;
-        letter-spacing: .08em;
-        color: var(--text-muted);
-    }
-    .footer-copy span { color: var(--accent); }
-    .footer-links {
-        display: flex;
-        gap: 22px;
-    }
+    .footer-copy { font-family:var(--font-mono); font-size:.62rem; letter-spacing:.08em; color:var(--text-muted); }
+    .footer-copy span { color:var(--accent); }
+    .footer-links { display:flex; gap:22px; }
     .footer-links a {
         font-family: var(--font-mono);
         font-size: .62rem;
@@ -903,9 +940,9 @@
         background: none;
         border: 1px solid var(--border);
         padding: 6px 12px;
-        transition: color var(--t), border-color var(--t);
+        transition: color var(--t), border-color var(--t), background var(--t);
     }
-    .back-top:hover { color:var(--accent); border-color:var(--border-accent); }
+    .back-top:hover { color:var(--accent); border-color:var(--border-accent); background:var(--accent-pale); }
 
     /* ======================================================
        RESPONSIVE
@@ -977,7 +1014,7 @@
     <div class="container">
         <div class="hero-eyebrow">
             <div class="hero-eyebrow-line"></div>
-            <span>Technical Writer &amp; Content Strategist</span>
+            <span>Content Editor &amp; Technical Writer</span>
         </div>
         <h1 class="hero-name">
             Gayathri<br>
@@ -987,9 +1024,9 @@
         <div class="hero-bottom">
             <div>
                 <p class="hero-tagline">
-                    Translating the complex into the clear — from API references
-                    and developer portals to enterprise content strategy,
-                    across FinTech, Cybersecurity, AI/ML, and SaaS.
+                    Research-driven content that turns industry complexity into
+                    clarity — producing SEO-optimised articles, technical documentation,
+                    and editorial content across FinTech, Cybersecurity, AI, and SaaS.
                 </p>
                 <div class="hero-domains">
                     <span class="dtag">FinTech</span>
@@ -997,6 +1034,7 @@
                     <span class="dtag">AI / ML</span>
                     <span class="dtag">API Docs</span>
                     <span class="dtag">SaaS</span>
+                    <span class="dtag">SEO Content</span>
                 </div>
             </div>
             <div class="hero-actions">
@@ -1007,35 +1045,34 @@
     </div>
 </section>
 
-<!-- MARQUEE STRIP -->
+<!-- MARQUEE -->
 <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-track">
-        <!-- duplicated for infinite loop -->
-        <span class="marquee-item"><span class="marquee-dot"></span> API Documentation</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Content Strategy</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Developer Portals</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> FinTech</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Cybersecurity</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> AI / ML</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> SaaS Documentation</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> SEO Content Writing</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Technical Writing</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> FinTech &amp; Cybersecurity</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Content Editing</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> SPARK Matrix Reports</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> AI &amp; RegTech</span>
         <span class="marquee-item"><span class="marquee-dot"></span> Information Architecture</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Docs-as-Code</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Style Guides</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> OpenAPI / Swagger</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> UX Writing</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> On-Page SEO</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Research &amp; Analysis</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Brand Voice</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Generative AI</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Digital Publishing</span>
         <!-- duplicate -->
-        <span class="marquee-item"><span class="marquee-dot"></span> API Documentation</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Content Strategy</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Developer Portals</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> FinTech</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Cybersecurity</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> AI / ML</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> SaaS Documentation</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> SEO Content Writing</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Technical Writing</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> FinTech &amp; Cybersecurity</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Content Editing</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> SPARK Matrix Reports</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> AI &amp; RegTech</span>
         <span class="marquee-item"><span class="marquee-dot"></span> Information Architecture</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Docs-as-Code</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> Style Guides</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> OpenAPI / Swagger</span>
-        <span class="marquee-item"><span class="marquee-dot"></span> UX Writing</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> On-Page SEO</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Research &amp; Analysis</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Brand Voice</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Generative AI</span>
+        <span class="marquee-item"><span class="marquee-dot"></span> Digital Publishing</span>
     </div>
 </div>
 
@@ -1053,26 +1090,26 @@
                 </div>
                 <div class="about-stats">
                     <div class="stat">
+                        <span class="stat-n">15+</span>
+                        <span class="stat-l">Articles</span>
+                    </div>
+                    <div class="stat">
                         <span class="stat-n">5+</span>
                         <span class="stat-l">Domains</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-n">20+</span>
-                        <span class="stat-l">Projects</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-n">2</span>
-                        <span class="stat-l">Yrs Exp.</span>
+                        <span class="stat-n">MA</span>
+                        <span class="stat-l">English Lit</span>
                     </div>
                 </div>
             </div>
             <div class="about-body reveal reveal-d2">
-                <p>I'm a <strong>Technical Writer and Content Strategist</strong> working at the intersection of complex systems and human understanding. My focus is on industries where precision and clarity aren't nice-to-haves — they're critical: <strong>FinTech, Cybersecurity, AI/ML, API-first products, and developer-facing SaaS</strong>.</p>
+                <p>I'm a <strong>Content Editor and Technical Writer</strong> with a Master's degree in English Language and Literature from Amrita Vishwa Vidyapeetham. At QKS Group (TechBuzz Media), I produce research-driven, SEO-optimised content for <strong>Fintech Outlook</strong> and <strong>Infosec TechBuzz</strong> — translating complex market intelligence, SPARK Matrix reports, and industry trends into clear, compelling articles for business and technology audiences.</p>
                 <div class="pull-quote">
-                    <p>"Documentation isn't an afterthought — it's the product experience for every developer, analyst, or user who can't ask a question in real time."</p>
+                    <p>"Good writing isn't just about clarity — it's about making the reader feel that complexity was never a barrier to begin with."</p>
                 </div>
-                <p>I approach documentation as a <strong>systems problem</strong>: Who needs this? What do they need to accomplish? Where will they get stuck? My process combines structured information architecture with editorial sharpness — every document I produce is built to reduce friction and build trust at scale.</p>
-                <p>Whether it's an <strong>API reference guide</strong> for a developer portal, an <strong>incident response runbook</strong> for a SOC team, or a <strong>content strategy framework</strong> for a scaling product — I bring the same rigor: clarity of structure, precision of language, and an obsessive focus on the reader's experience.</p>
+                <p>My foundation in literature — <strong>critical analysis, narrative craft, and language precision</strong> — gives me a distinct edge in technical domains. I bring editorial rigour to complex subjects and a reader-first approach to every piece, whether it's a fintech blog, a cybersecurity analysis, a SPARK Matrix editorial, or an API documentation guide.</p>
+                <p>Beyond professional work, I write <strong>original fiction and poetry</strong> — a long-form web series on Wattpad and a published poetry collection on WordPress — reflecting a deep commitment to storytelling that carries directly into my professional writing.</p>
                 <a href="#contact" class="btn-outline" style="margin-top:8px;">Let's Work Together</a>
             </div>
         </div>
@@ -1092,45 +1129,42 @@
             <div class="section-rule"></div>
         </div>
         <div class="skills-grid">
-            <!-- Writing & Docs -->
             <div class="skill-col reveal">
                 <div class="skill-col-head">
                     <div class="sk-icon">
                         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     </div>
-                    <span class="sk-title">Writing &amp; Documentation</span>
+                    <span class="sk-title">Writing &amp; Editing</span>
                 </div>
                 <ul class="sk-list">
-                    <li>API Reference Documentation</li>
-                    <li>Developer Guides &amp; Tutorials</li>
-                    <li>User Manuals &amp; SOPs</li>
-                    <li>Knowledge Base Articles</li>
-                    <li>Release Notes &amp; Changelogs</li>
-                    <li>UX Microcopy &amp; Tooltips</li>
-                    <li>Incident Runbooks &amp; Playbooks</li>
-                    <li>White Papers &amp; Case Studies</li>
+                    <li>SEO Content Writing</li>
+                    <li>Technical Writing</li>
+                    <li>Content Editing &amp; Proofreading</li>
+                    <li>Research-Driven Articles</li>
+                    <li>Blog Writing &amp; Optimisation</li>
+                    <li>B2C Content Writing</li>
+                    <li>UX Writing</li>
+                    <li>Creative Writing &amp; Poetry</li>
                 </ul>
             </div>
-            <!-- Content Strategy -->
             <div class="skill-col reveal reveal-d2">
                 <div class="skill-col-head">
                     <div class="sk-icon">
                         <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                     </div>
-                    <span class="sk-title">Content Strategy</span>
+                    <span class="sk-title">Content Strategy &amp; SEO</span>
                 </div>
                 <ul class="sk-list">
-                    <li>Information Architecture</li>
-                    <li>Content Audits &amp; Gap Analysis</li>
-                    <li>Style Guide Development</li>
-                    <li>Docs-as-Code Workflows</li>
-                    <li>Content Governance Frameworks</li>
-                    <li>Audience &amp; User Research</li>
-                    <li>SEO for Technical Content</li>
-                    <li>Editorial Planning &amp; Roadmaps</li>
+                    <li>Keyword Research &amp; On-Page SEO</li>
+                    <li>SERP Optimisation</li>
+                    <li>Content Strategy &amp; Planning</li>
+                    <li>Search Intent Analysis</li>
+                    <li>Competitive Content Analysis</li>
+                    <li>Brand Voice Development</li>
+                    <li>Content Governance</li>
+                    <li>Social Media Content Strategy</li>
                 </ul>
             </div>
-            <!-- Tools -->
             <div class="skill-col reveal reveal-d3">
                 <div class="skill-col-head">
                     <div class="sk-icon">
@@ -1139,22 +1173,18 @@
                     <span class="sk-title">Tools &amp; Platforms</span>
                 </div>
                 <div class="chips">
-                    <span class="chip">Confluence</span>
-                    <span class="chip">Notion</span>
-                    <span class="chip">GitHub</span>
-                    <span class="chip">GitLab</span>
-                    <span class="chip">Swagger / OpenAPI</span>
-                    <span class="chip">Postman</span>
-                    <span class="chip">Markdown</span>
-                    <span class="chip">DITA</span>
-                    <span class="chip">Figma</span>
-                    <span class="chip">Miro</span>
-                    <span class="chip">Jira</span>
-                    <span class="chip">VS Code</span>
-                    <span class="chip">Zendesk</span>
-                    <span class="chip">MadCap Flare</span>
+                    <span class="chip">WordPress</span>
                     <span class="chip">Google Docs</span>
-                    <span class="chip">MS 365</span>
+                    <span class="chip">MS Word</span>
+                    <span class="chip">MS Excel</span>
+                    <span class="chip">PowerPoint</span>
+                    <span class="chip">Canva</span>
+                    <span class="chip">ChatGPT / AI Tools</span>
+                    <span class="chip">Prompt Engineering</span>
+                    <span class="chip">CMS Platforms</span>
+                    <span class="chip">LMS</span>
+                    <span class="chip">Basic HTML</span>
+                    <span class="chip">Wattpad</span>
                 </div>
             </div>
         </div>
@@ -1178,92 +1208,94 @@
             <button class="fbtn" data-filter="fintech">FinTech</button>
             <button class="fbtn" data-filter="cybersecurity">Cybersecurity</button>
             <button class="fbtn" data-filter="ai-ml">AI / ML</button>
-            <button class="fbtn" data-filter="api">API Docs</button>
-            <button class="fbtn" data-filter="saas">SaaS</button>
+            <button class="fbtn" data-filter="academic">Academic</button>
+            <button class="fbtn" data-filter="creative">Creative</button>
         </div>
         <div class="work-grid">
-            <!-- Featured card -->
-            <div class="wcard featured reveal" data-category="api fintech">
+            <!-- Featured -->
+            <div class="wcard featured reveal" data-category="fintech cybersecurity ai-ml">
                 <div>
                     <div class="wcard-idx">Featured — 001</div>
-                    <div class="wcard-domain">API Documentation · FinTech</div>
-                    <h3 class="wcard-title">Payment Gateway REST API Reference</h3>
+                    <div class="wcard-domain">FinTech · Cybersecurity · AI/ML</div>
+                    <h3 class="wcard-title">Industry Blog Series — TechBuzz Media (Fintech Outlook &amp; Infosec TechBuzz)</h3>
                 </div>
                 <div>
                     <p class="wcard-desc">
-                        Comprehensive REST API reference for a payment gateway product — OAuth 2.0 &amp; API key authentication flows, all endpoint specifications, error code taxonomy, rate limiting policy, and working code samples in Python, Node.js, and cURL. Designed to take a developer from zero to first successful call in under 30 minutes.
+                        SEO-optimised blog content for two specialist industry platforms: <strong>Fintech Outlook</strong> (digital banking, regulatory technology, payments, financial compliance) and <strong>Infosec TechBuzz</strong> (cybersecurity threats, enterprise security, and AI-driven risk management). Content spans vendor analysis, trend reporting, conference coverage, and market intelligence editorial.
                     </p>
                     <div class="wcard-tags">
-                        <span class="wtag">REST API</span>
-                        <span class="wtag">OpenAPI / Swagger</span>
-                        <span class="wtag">Developer Docs</span>
+                        <span class="wtag">SEO Blogs</span>
                         <span class="wtag">FinTech</span>
+                        <span class="wtag">Cybersecurity</span>
+                        <span class="wtag">On-Page SEO</span>
+                        <span class="wtag">B2B Content</span>
                     </div>
                     <div style="margin-top:24px;">
-                        <a href="#" class="btn-outline" style="font-size:.7rem; padding:10px 18px;">View Sample →</a>
+                        <a href="https://fintechoutlook.com/" target="_blank" rel="noopener" class="btn-outline" style="font-size:.7rem;padding:10px 18px;">View Publication →</a>
                     </div>
                 </div>
             </div>
             <!-- Card 2 -->
-            <div class="wcard reveal" data-category="cybersecurity">
+            <div class="wcard reveal" data-category="ai-ml fintech">
                 <div class="wcard-idx">002</div>
-                <div class="wcard-domain">Cybersecurity</div>
-                <h3 class="wcard-title">Incident Response Runbook &amp; SOC Playbook</h3>
-                <p class="wcard-desc">End-to-end incident response documentation covering detection, triage, containment, eradication, and post-incident review. Written for a 500-person SOC team with RACI matrices, decision trees, and escalation paths.</p>
+                <div class="wcard-domain">AI / ML · Market Intelligence</div>
+                <h3 class="wcard-title">SPARK Matrix Editorial Reports — Technology Vendor Analysis</h3>
+                <p class="wcard-desc">Editorial support for QKS Group's SPARK Matrix reports — translating complex technology vendor evaluations and market positioning data into clear, accessible business content for enterprise audiences across AI, SaaS, and cloud technology sectors.</p>
                 <div class="wcard-tags">
-                    <span class="wtag">Runbook</span>
-                    <span class="wtag">SOC</span>
-                    <span class="wtag">SOP</span>
-                    <span class="wtag">Cybersecurity</span>
+                    <span class="wtag">Market Intelligence</span>
+                    <span class="wtag">Editorial</span>
+                    <span class="wtag">AI / SaaS</span>
+                    <span class="wtag">Vendor Analysis</span>
                 </div>
                 <div class="wcard-arrow">
                     <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
             </div>
             <!-- Card 3 -->
-            <div class="wcard reveal reveal-d2" data-category="ai-ml">
+            <div class="wcard reveal reveal-d2" data-category="fintech">
                 <div class="wcard-idx">003</div>
-                <div class="wcard-domain">AI / ML</div>
-                <h3 class="wcard-title">ML Pipeline Documentation Suite &amp; Model Cards</h3>
-                <p class="wcard-desc">Documentation package for an internal ML deployment pipeline: system architecture overview, data schema references, model cards (Mitchell et al. framework), and operational runbooks for MLOps engineers and data scientists.</p>
+                <div class="wcard-domain">FinTech · RegTech</div>
+                <h3 class="wcard-title">Regulatory Technology &amp; Digital Banking Content Series</h3>
+                <p class="wcard-desc">Research-driven articles on regulatory technology trends, digital banking innovations, open banking frameworks, and financial compliance — produced using SPARK Matrix insights, industry conference findings, and primary research reports.</p>
                 <div class="wcard-tags">
-                    <span class="wtag">AI / ML</span>
-                    <span class="wtag">Model Cards</span>
-                    <span class="wtag">MLOps</span>
-                    <span class="wtag">Internal Docs</span>
+                    <span class="wtag">RegTech</span>
+                    <span class="wtag">Digital Banking</span>
+                    <span class="wtag">Research Writing</span>
+                    <span class="wtag">FinTech</span>
                 </div>
                 <div class="wcard-arrow">
                     <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
             </div>
             <!-- Card 4 -->
-            <div class="wcard reveal" data-category="saas">
+            <div class="wcard reveal" data-category="academic">
                 <div class="wcard-idx">004</div>
-                <div class="wcard-domain">SaaS · Content Strategy</div>
-                <h3 class="wcard-title">Knowledge Base Redesign &amp; IA Overhaul</h3>
-                <p class="wcard-desc">Restructured a 200+ article legacy help center into a user-journey-based knowledge base with improved taxonomy, search optimisation, and task-oriented article structure — reducing average support resolution time measurably.</p>
+                <div class="wcard-domain">Academic · Research Publication</div>
+                <h3 class="wcard-title">International Journal Publication — IJCRT</h3>
+                <p class="wcard-desc">Published peer-reviewed research paper: "Queer Desires and Gothic Spaces: Exploring Identity, Darkness, and Emotional Confinement in Giovanni's Room and Call Me by Your Name." Demonstrates advanced critical analysis, structured academic writing, and scholarly rigour. Paper ID: 283403.</p>
                 <div class="wcard-tags">
-                    <span class="wtag">SaaS</span>
-                    <span class="wtag">IA</span>
-                    <span class="wtag">Knowledge Base</span>
-                    <span class="wtag">Help Centre</span>
+                    <span class="wtag">Academic Writing</span>
+                    <span class="wtag">Literary Analysis</span>
+                    <span class="wtag">IJCRT</span>
+                    <span class="wtag">Peer-Reviewed</span>
                 </div>
-                <div class="wcard-arrow">
+                <div class="wcard-arrow" onclick="window.open('https://ijcrt.org/papers/IJCRT25A4218.pdf','_blank')">
                     <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
             </div>
             <!-- Card 5 -->
-            <div class="wcard reveal reveal-d2" data-category="api saas">
+            <div class="wcard reveal reveal-d2" data-category="creative">
                 <div class="wcard-idx">005</div>
-                <div class="wcard-domain">Content Strategy · Developer Portal</div>
-                <h3 class="wcard-title">Developer Portal Content Strategy &amp; Style Guide</h3>
-                <p class="wcard-desc">Designed and executed a full content strategy for a B2B developer portal — establishing tone of voice, documentation taxonomy, information hierarchy, and a style guide adopted across a 12-person engineering team.</p>
+                <div class="wcard-domain">Creative Writing · Digital Publishing</div>
+                <h3 class="wcard-title">Eclipsed Realm &amp; Ethereal Rhymes — Fiction &amp; Poetry</h3>
+                <p class="wcard-desc">Long-form fiction series "Eclipsed Realm" (Wattpad) — blending fantasy, romance, and supernatural elements with sustained character development and narrative architecture. Original poetry portfolio "Ethereal Rhymes" (WordPress) exploring identity, emotion, and reflection.</p>
                 <div class="wcard-tags">
-                    <span class="wtag">Content Strategy</span>
-                    <span class="wtag">Style Guide</span>
-                    <span class="wtag">Dev Portal</span>
+                    <span class="wtag">Creative Writing</span>
+                    <span class="wtag">Storytelling</span>
+                    <span class="wtag">Poetry</span>
+                    <span class="wtag">Web Publishing</span>
                 </div>
-                <div class="wcard-arrow">
+                <div class="wcard-arrow" onclick="window.open('https://www.wattpad.com/story/374607489-eclipsed-realm','_blank')">
                     <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
             </div>
@@ -1291,28 +1323,19 @@
                     <div class="titem">
                         <div class="tline"><div class="tdot"></div><div class="tconn"></div></div>
                         <div>
-                            <div class="tdate">2024 — Present</div>
-                            <div class="trole">Freelance Technical Writer &amp; Content Strategist</div>
-                            <div class="torg">Independent · Remote</div>
-                            <p class="tdesc">Delivering end-to-end documentation and content strategy for clients across FinTech, Cybersecurity, and AI sectors. Projects include REST API reference documentation, developer onboarding guides, knowledge base restructuring, and content governance frameworks for product teams.</p>
+                            <div class="tdate">Jan 2025 — Mar 2026</div>
+                            <div class="trole">Content Editor</div>
+                            <div class="torg">QKS Group (TechBuzz Media) · Pune</div>
+                            <p class="tdesc">Write and edit SEO-optimised blog content for Fintech Outlook and Infosec TechBuzz. Produce research-driven articles on fintech, cybersecurity, digital banking, and regulatory technology. Translate complex SPARK Matrix reports and market insights into clear, engaging content. Apply on-page SEO practices including keyword integration, headline optimisation, and structured formatting. Conduct topic research, trend analysis, and competitive content reviews.</p>
                         </div>
                     </div>
                     <div class="titem">
                         <div class="tline"><div class="tdot"></div><div class="tconn"></div></div>
                         <div>
-                            <div class="tdate">2023 — 2024</div>
-                            <div class="trole">Junior Technical Writer</div>
-                            <div class="torg">SaaS / Technology Company · India</div>
-                            <p class="tdesc">Created and maintained API documentation, user guides, and internal SOPs. Collaborated with engineering and product teams to document new feature releases. Led the transition of documentation workflows to a docs-as-code model using Markdown and GitHub.</p>
-                        </div>
-                    </div>
-                    <div class="titem">
-                        <div class="tline"><div class="tdot"></div><div class="tconn"></div></div>
-                        <div>
-                            <div class="tdate">2022 — 2023</div>
-                            <div class="trole">Content &amp; Documentation Intern</div>
-                            <div class="torg">Tech Startup · India</div>
-                            <p class="tdesc">Drafted help articles, product changelog entries, and onboarding materials. Assisted in user interviews to improve documentation quality, coverage, and findability.</p>
+                            <div class="tdate">Feb 2022 — Aug 2022</div>
+                            <div class="trole">Academic Coordinator</div>
+                            <div class="torg">Indian Institute of Commerce – Lakshya · Kochi</div>
+                            <p class="tdesc">Managed academic operations for four classes of 40–50 students, ensuring efficient scheduling and timely issue resolution. Coordinated communication between students, faculty, and administration. Maintained academic records, study materials, and documentation with strong focus on organisation and workflow efficiency.</p>
                         </div>
                     </div>
                 </div>
@@ -1324,48 +1347,56 @@
                     <div class="titem">
                         <div class="tline"><div class="tdot"></div><div class="tconn"></div></div>
                         <div>
-                            <div class="tdate">2019 — 2023</div>
-                            <div class="trole">Bachelor's Degree</div>
-                            <div class="torg">University · India</div>
-                            <p class="tdesc">Add your degree and field of study here.</p>
+                            <div class="tdate">Jun 2023 — May 2025</div>
+                            <div class="trole">Master of Arts — English Language &amp; Literature</div>
+                            <div class="torg">Amrita Vishwa Vidyapeetham · CGPA 8.34</div>
+                            <p class="tdesc">Advanced study in critical analysis, literary theory, language, and cultural studies. Developed strong analytical writing, research, and editorial skills applied to complex texts and arguments.</p>
+                        </div>
+                    </div>
+                    <div class="titem">
+                        <div class="tline"><div class="tdot"></div><div class="tconn"></div></div>
+                        <div>
+                            <div class="tdate">Jul 2017 — May 2020</div>
+                            <div class="trole">Bachelor of Arts — English Language &amp; Literature</div>
+                            <div class="torg">Amrita Vishwa Vidyapeetham · CGPA 7.23</div>
+                            <p class="tdesc">Core study in English literature, linguistics, and communication. Foundation in storytelling, critical reading, and written expression across diverse formats.</p>
                         </div>
                     </div>
                 </div>
                 <div class="cert-list">
                     <div class="cert">
-                        <div class="cert-ico">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-                        </div>
+                        <div class="cert-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
                         <div>
-                            <div class="cert-name">Technical Writing Fundamentals</div>
-                            <div class="cert-src">Google Developers · 2023</div>
+                            <div class="cert-name">Certificate Course in Technical Writing</div>
+                            <div class="cert-src">Reliance Foundation | Skill Development</div>
                         </div>
                     </div>
                     <div class="cert">
-                        <div class="cert-ico">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-                        </div>
+                        <div class="cert-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
                         <div>
-                            <div class="cert-name">API Documentation with Swagger &amp; OpenAPI</div>
-                            <div class="cert-src">iDratherBeWriting / Udemy · 2023</div>
+                            <div class="cert-name">Content Creation and Marketing</div>
+                            <div class="cert-src">Professional Certification</div>
                         </div>
                     </div>
                     <div class="cert">
-                        <div class="cert-ico">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-                        </div>
+                        <div class="cert-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
                         <div>
-                            <div class="cert-name">Content Strategy for Professionals</div>
-                            <div class="cert-src">Northwestern University · Coursera · 2024</div>
+                            <div class="cert-name">Prompt Engineering &amp; Generative AI Mastermind</div>
+                            <div class="cert-src">Outskill AI Mastermind Program</div>
                         </div>
                     </div>
                     <div class="cert">
-                        <div class="cert-ico">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-                        </div>
+                        <div class="cert-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
                         <div>
-                            <div class="cert-name">Information Architecture Fundamentals</div>
-                            <div class="cert-src">LinkedIn Learning · 2024</div>
+                            <div class="cert-name">SEO Strategy: Link Building</div>
+                            <div class="cert-src">Professional Certification</div>
+                        </div>
+                    </div>
+                    <div class="cert">
+                        <div class="cert-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                        <div>
+                            <div class="cert-name">Content Management Systems (CMS)</div>
+                            <div class="cert-src">Professional Certification</div>
                         </div>
                     </div>
                 </div>
@@ -1383,36 +1414,36 @@
     <div class="container">
         <div class="section-header reveal">
             <div class="section-no">— 05</div>
-            <h2 class="section-title">Thoughts &amp; <em>Writing</em></h2>
+            <h2 class="section-title">Published <em>Work</em></h2>
             <div class="section-rule"></div>
         </div>
         <div class="blog-grid">
             <div class="bcard reveal">
                 <div class="bcard-meta">
-                    <span class="btag">API Docs</span>
-                    <span class="bdate">May 2025</span>
+                    <span class="btag">FinTech</span>
+                    <span class="bdate">Fintech Outlook · 2025</span>
                 </div>
-                <h3 class="bcard-title">Why Your API Documentation Is Losing You Developers</h3>
-                <p class="bcard-excerpt">Most API docs fail before the first endpoint. The problem isn't the content — it's the structure. Here's what separates documentation that onboards in 20 minutes from docs that generate support tickets.</p>
-                <a href="#" class="breadmore">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <h3 class="bcard-title">Industry Intelligence: FinTech Trends &amp; Digital Banking Analysis</h3>
+                <p class="bcard-excerpt">Ongoing research-driven content for Fintech Outlook covering digital payments, open banking, BNPL evolution, CBDCs, and the regulatory landscape reshaping financial services globally. Each piece translates SPARK Matrix data and market reports into accessible editorial.</p>
+                <a href="https://fintechoutlook.com/" target="_blank" rel="noopener" class="breadmore">Read on Fintech Outlook <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
             <div class="bcard reveal reveal-d2">
                 <div class="bcard-meta">
-                    <span class="btag">Content Strategy</span>
-                    <span class="bdate">March 2025</span>
+                    <span class="btag">Cybersecurity</span>
+                    <span class="bdate">Infosec TechBuzz · 2025</span>
                 </div>
-                <h3 class="bcard-title">Information Architecture for Technical Writers: A Practical Guide</h3>
-                <p class="bcard-excerpt">IA isn't just for UX designers. Technical writers who understand information architecture build documentation systems that scale — and don't collapse under their own weight three months post-launch.</p>
-                <a href="#" class="breadmore">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <h3 class="bcard-title">Cybersecurity Intelligence: Enterprise Security &amp; AI-Driven Threat Analysis</h3>
+                <p class="bcard-excerpt">Editorial content for Infosec TechBuzz examining zero-trust architectures, AI-assisted threat detection, ransomware evolution, and enterprise security strategy — translating technical intelligence for business and security decision-makers.</p>
+                <a href="#" class="breadmore">View Articles <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
             <div class="bcard reveal reveal-d3">
                 <div class="bcard-meta">
-                    <span class="btag">Docs-as-Code</span>
-                    <span class="bdate">January 2025</span>
+                    <span class="btag">Academic Research</span>
+                    <span class="bdate">IJCRT · 2025</span>
                 </div>
-                <h3 class="bcard-title">Treating Documentation as a Product: The Case for Docs-as-Code</h3>
-                <p class="bcard-excerpt">Documentation that lives outside the development workflow is documentation that falls behind. How I set up a docs-as-code pipeline on GitHub — and what changed when we did.</p>
-                <a href="#" class="breadmore">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <h3 class="bcard-title">Queer Desires and Gothic Spaces: Identity in Giovanni's Room and Call Me by Your Name</h3>
+                <p class="bcard-excerpt">Published peer-reviewed research exploring identity, emotional confinement, and queerness through a Gothic lens in two landmark literary works. Demonstrates the analytical depth and structural rigour that underpins all professional writing. Paper ID: 283403.</p>
+                <a href="https://ijcrt.org/papers/IJCRT25A4218.pdf" target="_blank" rel="noopener" class="breadmore">Read Paper <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
         </div>
     </div>
@@ -1434,42 +1465,55 @@
                 Let's build<br>something <em>clear.</em>
             </h2>
             <p class="contact-sub">
-                Whether you need an API documented, a content system architected,
-                or a full documentation strategy for your product team — I'd love to talk.
+                Whether you need industry content researched and written, a documentation
+                strategy built, or an editorial partner who truly understands your domain —
+                I'd love to hear about it.
             </p>
             <div class="contact-links">
-                <a href="mailto:gayathri@example.com" class="clink">
+                <a href="mailto:gayathria306@gmail.com" class="clink">
                     <div class="clink-l">
                         <div class="clink-ico">
                             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         </div>
                         <div>
                             <div class="clink-lbl">Email</div>
-                            <div class="clink-val">gayathri@example.com</div>
+                            <div class="clink-val">gayathria306@gmail.com</div>
                         </div>
                     </div>
                     <div class="clink-arr"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </a>
-                <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" class="clink">
+                <a href="https://www.linkedin.com/in/gayathri-pajith-7653a11b1" target="_blank" rel="noopener" class="clink">
                     <div class="clink-l">
                         <div class="clink-ico">
                             <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                         </div>
                         <div>
                             <div class="clink-lbl">LinkedIn</div>
-                            <div class="clink-val">linkedin.com/in/gayathri-p-ajith</div>
+                            <div class="clink-val">linkedin.com/in/gayathri-pajith-7653a11b1</div>
                         </div>
                     </div>
                     <div class="clink-arr"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </a>
-                <a href="https://github.com/your-username" target="_blank" rel="noopener" class="clink">
+                <a href="https://etherealrhymesbygayathri.wordpress.com/" target="_blank" rel="noopener" class="clink">
                     <div class="clink-l">
                         <div class="clink-ico">
-                            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                         </div>
                         <div>
-                            <div class="clink-lbl">GitHub</div>
-                            <div class="clink-val">github.com/gayathri-p-ajith</div>
+                            <div class="clink-lbl">Portfolio / Blog</div>
+                            <div class="clink-val">etherealrhymesbygayathri.wordpress.com</div>
+                        </div>
+                    </div>
+                    <div class="clink-arr"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </a>
+                <a href="tel:+917591920719" class="clink">
+                    <div class="clink-l">
+                        <div class="clink-ico">
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.95a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div class="clink-lbl">Phone</div>
+                            <div class="clink-val">+91 75919 20719</div>
                         </div>
                     </div>
                     <div class="clink-arr"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
@@ -1485,7 +1529,7 @@
 <footer>
     <div class="container">
         <div class="footer-inner">
-            <div class="footer-copy">© 2025 <span>Gayathri P Ajith</span> · Technical Writer &amp; Content Strategist</div>
+            <div class="footer-copy">© 2025 <span>Gayathri P Ajith</span> · Content Editor &amp; Technical Writer · Kerala, India</div>
             <nav class="footer-links">
                 <a href="#about">About</a>
                 <a href="#work">Work</a>
@@ -1501,10 +1545,11 @@
      JAVASCRIPT
 ======================================================== -->
 <script>
-    // Navbar scroll state
+    // Nav scroll
     const navbar = document.getElementById('navbar');
-    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 24);
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
 
     // Mobile menu
     function openMobileMenu() {
@@ -1542,15 +1587,15 @@
         });
     });
 
-    // Active nav link highlight on scroll
-    const sections  = document.querySelectorAll('section[id]');
-    const navLinks  = document.querySelectorAll('.nav-links a');
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
     const activeObs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
             if (e.isIntersecting) {
                 navLinks.forEach(a => {
-                    a.style.color = (a.getAttribute('href') === '#' + e.target.id)
-                        ? 'var(--text-primary)' : '';
+                    const isActive = a.getAttribute('href') === '#' + e.target.id;
+                    a.style.color = isActive ? 'var(--accent)' : '';
                 });
             }
         });
